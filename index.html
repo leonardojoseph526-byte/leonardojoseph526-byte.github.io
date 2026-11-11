@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b16">
+<title>My Portfolio | Personal Website</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080b16;
+  color: #f4f5ff;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 7%;
+  background: rgba(8,11,22,.92);
+  border-bottom: 1px solid #242943;
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #72a5ff;
+}
+
+nav a {
+  font-size: 12px;
+  margin-left: 12px;
+  color: #c5c9dd;
+}
+
+nav a:hover {
+  color: #9b7cff;
+}
+
+.hero {
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px 9%;
+  background:
+    radial-gradient(ellipse at 85% 25%, #39206a66, transparent 45%),
+    radial-gradient(ellipse at 15% 80%, #153b8066, transparent 45%);
+}
+
+.tag {
+  color: #83aaff;
+  letter-spacing: 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 10vw, 76px);
+  line-height: 1.15;
+  margin: 18px 0;
+}
+
+.gradient {
+  background: linear-gradient(90deg,#65b5ff,#a47aff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 520px;
+  color: #aeb5ce;
+  margin-bottom: 28px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: linear-gradient(100deg,#3269d9,#824bce);
+  font-weight: bold;
+  font-size: 14px;
+  width: fit-content;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px #5555ff55;
+}
+
+section {
+  padding: 75px 9%;
+  scroll-margin-top: 60px;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+
+.section-title span {
+  color: #8a9fff;
+}
+
+.about {
+  color: #b8bfd3;
+  max-width: 700px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 18px;
+}
+
+.card {
+  padding: 24px;
+  background: linear-gradient(145deg,#151c32,#101322);
+  border: 1px solid #293452;
+  border-radius: 14px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #826bff;
+  box-shadow: 0 8px 30px #423b8a30;
+}
+
+.card h3 {
+  color: #91aaff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #aeb5ce;
+  font-size: 14px;
+}
+
+.project-number {
+  color: #a98aff;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill {
+  padding: 10px 16px;
+  border: 1px solid #414b70;
+  border-radius: 30px;
+  color: #c7caff;
+  background: #141a2c;
+  font-size: 13px;
+}
+
+.contact p {
+  color: #b8bfd3;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid #242943;
+  color: #828ba6;
+  font-size: 12px;
+}
+
+@media(max-width:480px) {
+  nav {
+    padding: 14px 5%;
+  }
+  nav a {
+    margin-left: 7px;
+    font-size: 10px;
+  }
+  section {
+    padding: 60px 7%;
+  }
+  .hero {
+    padding: 60px 7%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">MY.PORTFOLIO</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="tag">WELCOME TO MY PORTFOLIO</div>
+
+  <h1>Hello, I'm<br>
+    <span class="gradient">Your Name.</span>
+  </h1>
+
+  <p>
+    A student, creative thinker, and lifelong learner.
+    Exploring ideas, developing skills, and turning
+    imagination into meaningful projects.
+  </p>
+
+  <a href="#projects" class="btn">Explore My Work →</a>
+</header>
+
+<section id="about">
+  <h2 class="section-title">About <span>Me.</span></h2>
+  <p class="about">
+    Hello! I'm Your Name. I'm someone who enjoys learning,
+    discovering new things, and exploring technology and science.
+    I believe every experience is an opportunity to improve,
+    gain knowledge, and develop new skills.
+    This portfolio is where I share my journey, projects,
+    interests, and achievements.
+  </p>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">My <span>Skills.</span></h2>
+  <div class="skills">
+    <div class="skill">Problem Solving</div>
+    <div class="skill">Critical Thinking</div>
+    <div class="skill">Research</div>
+    <div class="skill">Creativity</div>
+    <div class="skill">Communication</div>
+    <div class="skill">Technology</div>
+    <div class="skill">Teamwork</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Featured <span>Projects.</span></h2>
+  <div class="cards">
+
+    <div class="card">
+      <div class="project-number">01</div>
+      <h3>ECOOPAD</h3>
+      <p>
+        A reusable cooling pad concept designed
+        to provide comfort and help users cool down.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="project-number">02</div>
+      <h3>Flywheel Project</h3>
+      <p>
+        An engineering project exploring rotational
+        motion, energy storage, and mechanical design.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="project-number">03</div>
+      <h3>Research Projects</h3>
+      <p>
+        Academic research involving investigation,
+        data analysis, and scientific thinking.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="achievements">
+  <h2 class="section-title">My <span>Journey.</span></h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Education</h3>
+      <p>My academic journey and continuous learning experiences.</p>
+    </div>
+    <div class="card">
+      <h3>Personal Growth</h3>
+      <p>Developing my abilities through challenges and experiences.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="section-title">Get In <span>Touch.</span></h2>
+  <p>
+    Interested in my work or want to connect?
+    Feel free to reach out.
+  </p>
+  <a href="mailto:your-email@example.com" class="btn">
+    Contact Me →
+  </a>
+</section>
+
+<footer>
+  © 2026 Your Name. All rights reserved.
+  <br>Designed with creativity and curiosity.
+</footer>
+
+</body>
+</html>

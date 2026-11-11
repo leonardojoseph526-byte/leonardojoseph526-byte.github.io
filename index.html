@@ -68,7 +68,23 @@ nav {
   font-size: 19px;
   font-weight: bold;
   letter-spacing: 1px;
-  color: var(--blue);
+  background: linear-gradient(
+    90deg,
+    #65a5ff,
+    #a77aff,
+    #65a5ff
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: nameGlow 4s linear infinite;
+}
+
+@keyframes nameGlow {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .nav-links {
@@ -392,7 +408,7 @@ footer {
     <div class="tag">WELCOME TO MY WORLD</div>
 
     <h1>Hello, I'm<br>
-      <span class="gradient">Your Name.</span>
+      <span class="gradient">Joseph Leonardo.</span>
     </h1>
 
     <p>

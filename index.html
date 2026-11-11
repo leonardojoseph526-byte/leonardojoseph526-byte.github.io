@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b16">
-<title>My Portfolio | Personal Website</title>
+<meta name="theme-color" content="#080914">
+<title>Your Name | Portfolio</title>
 
 <style>
 * {
@@ -15,11 +15,20 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  --blue: #65a5ff;
+  --purple: #a77aff;
+  --bg: #080914;
+  --card: #111426;
+  --muted: #a4abc3;
+}
+
 body {
+  background: var(--bg);
+  color: #f5f5ff;
   font-family: Arial, sans-serif;
-  background: #080b16;
-  color: #f4f5ff;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 a {
@@ -27,184 +36,334 @@ a {
   text-decoration: none;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: #5734d4;
+  filter: blur(150px);
+  opacity: .17;
+  top: 10%;
+  right: -180px;
+  pointer-events: none;
+  z-index: -1;
+}
+
 nav {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 7%;
-  background: rgba(8,11,22,.92);
-  border-bottom: 1px solid #242943;
-  backdrop-filter: blur(12px);
+  padding: 16px 8%;
+  background: #080914eF;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #252943;
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: bold;
-  color: #72a5ff;
+  letter-spacing: 1px;
+  color: var(--blue);
 }
 
-nav a {
-  font-size: 12px;
-  margin-left: 12px;
-  color: #c5c9dd;
+.nav-links {
+  display: flex;
+  gap: 23px;
 }
 
-nav a:hover {
-  color: #9b7cff;
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--purple);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid #444b6b;
+  color: white;
+  border-radius: 7px;
+  padding: 7px 11px;
+  font-size: 19px;
 }
 
 .hero {
-  min-height: 82vh;
+  min-height: 85vh;
+  padding: 90px 9%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 70px 9%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
   background:
-    radial-gradient(ellipse at 85% 25%, #39206a66, transparent 45%),
-    radial-gradient(ellipse at 15% 80%, #153b8066, transparent 45%);
+    radial-gradient(ellipse at 15% 50%, #1649a52c, transparent 50%),
+    radial-gradient(ellipse at 85% 30%, #803caa30, transparent 50%);
+}
+
+.hero-content {
+  max-width: 620px;
 }
 
 .tag {
-  color: #83aaff;
-  letter-spacing: 3px;
-  font-size: 12px;
-  text-transform: uppercase;
+  display: inline-block;
+  color: #8ebaff;
+  border: 1px solid #38558c;
+  background: #15244770;
+  border-radius: 30px;
+  padding: 7px 15px;
+  font-size: 11px;
+  letter-spacing: 2px;
 }
 
 .hero h1 {
-  font-size: clamp(42px, 10vw, 76px);
-  line-height: 1.15;
-  margin: 18px 0;
+  font-size: clamp(43px, 8vw, 76px);
+  line-height: 1.12;
+  margin: 23px 0;
 }
 
 .gradient {
-  background: linear-gradient(90deg,#65b5ff,#a47aff);
+  background: linear-gradient(100deg,#69b7ff,#a477ff);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
 .hero p {
-  max-width: 520px;
-  color: #aeb5ce;
-  margin-bottom: 28px;
+  color: var(--muted);
+  max-width: 510px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 12px 21px;
   border-radius: 8px;
-  background: linear-gradient(100deg,#3269d9,#824bce);
+  background: linear-gradient(100deg,#3279df,#804cce);
+  font-size: 13px;
   font-weight: bold;
-  font-size: 14px;
-  width: fit-content;
   transition: .3s;
 }
 
 .btn:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px #5555ff55;
+  box-shadow: 0 8px 25px #6550dd66;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #59658d;
+}
+
+.profile-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 220px;
+}
+
+.profile {
+  width: 210px;
+  height: 210px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 65px;
+  font-weight: bold;
+  background: linear-gradient(145deg,#172e57,#24143f);
+  border: 2px solid #7775ff;
+  box-shadow: 0 0 35px #6461ff55,
+              inset 0 0 35px #5555ff22;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-13px); }
 }
 
 section {
-  padding: 75px 9%;
-  scroll-margin-top: 60px;
+  padding: 85px 9%;
+  scroll-margin-top: 70px;
 }
 
 .section-title {
-  font-size: 30px;
+  font-size: 32px;
   margin-bottom: 28px;
 }
 
 .section-title span {
-  color: #8a9fff;
+  color: var(--purple);
 }
 
 .about {
-  color: #b8bfd3;
-  max-width: 700px;
+  color: var(--muted);
+  max-width: 750px;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
-  gap: 18px;
+  gap: 20px;
 }
 
 .card {
-  padding: 24px;
-  background: linear-gradient(145deg,#151c32,#101322);
-  border: 1px solid #293452;
-  border-radius: 14px;
-  transition: .3s;
+  background: linear-gradient(145deg,#151b30,#0f1221);
+  border: 1px solid #2a3552;
+  border-radius: 15px;
+  padding: 25px;
+  transition: .35s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: #826bff;
-  box-shadow: 0 8px 30px #423b8a30;
+  transform: translateY(-7px);
+  border-color: #8c76ff;
+  box-shadow: 0 10px 30px #5c48ad30;
 }
 
 .card h3 {
-  color: #91aaff;
+  color: #9ab8ff;
   margin-bottom: 10px;
 }
 
 .card p {
-  color: #aeb5ce;
+  color: var(--muted);
   font-size: 14px;
 }
 
-.project-number {
-  color: #a98aff;
+.number {
   font-size: 26px;
   font-weight: bold;
+  color: #a98aff;
   margin-bottom: 10px;
 }
 
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 13px;
 }
 
 .skill {
-  padding: 10px 16px;
-  border: 1px solid #414b70;
+  padding: 10px 17px;
   border-radius: 30px;
-  color: #c7caff;
-  background: #141a2c;
+  border: 1px solid #424d75;
+  color: #cbd0ff;
+  background: #151a2e;
   font-size: 13px;
+  transition: .3s;
+}
+
+.skill:hover {
+  background: #28254e;
+  border-color: var(--purple);
+  transform: translateY(-3px);
+}
+
+.contact {
+  background: radial-gradient(ellipse at center,#28205255,transparent 70%);
 }
 
 .contact p {
-  color: #b8bfd3;
-  margin-bottom: 20px;
+  color: var(--muted);
+  margin-bottom: 22px;
 }
 
 footer {
   text-align: center;
   padding: 25px;
-  border-top: 1px solid #242943;
-  color: #828ba6;
+  color: #8189a4;
+  border-top: 1px solid #252943;
   font-size: 12px;
 }
 
-@media(max-width:480px) {
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width:650px) {
   nav {
-    padding: 14px 5%;
+    padding: 14px 6%;
   }
-  nav a {
-    margin-left: 7px;
-    font-size: 10px;
+
+  .menu-btn {
+    display: block;
   }
-  section {
-    padding: 60px 7%;
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 61px;
+    left: 0;
+    right: 0;
+    background: #0d1020;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 1px solid #303958;
   }
+
+  .nav-links.open {
+    display: flex;
+  }
+
   .hero {
-    padding: 60px 7%;
+    min-height: auto;
+    padding: 80px 7%;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .profile-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .profile {
+    width: 145px;
+    height: 145px;
+    font-size: 45px;
+  }
+
+  section {
+    padding: 65px 7%;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>
@@ -214,43 +373,58 @@ footer {
 
 <nav>
   <div class="logo">MY.PORTFOLIO</div>
-  <div>
+
+  <button class="menu-btn" id="menuBtn"
+    aria-label="Toggle navigation"
+    aria-expanded="false">☰</button>
+
+  <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#achievements">Journey</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="tag">WELCOME TO MY PORTFOLIO</div>
+  <div class="hero-content">
+    <div class="tag">WELCOME TO MY WORLD</div>
 
-  <h1>Hello, I'm<br>
-    <span class="gradient">Your Name.</span>
-  </h1>
+    <h1>Hello, I'm<br>
+      <span class="gradient">Your Name.</span>
+    </h1>
 
-  <p>
-    A student, creative thinker, and lifelong learner.
-    Exploring ideas, developing skills, and turning
-    imagination into meaningful projects.
-  </p>
+    <p>
+      A student, creative thinker, and lifelong learner.
+      Exploring technology, science, and new possibilities.
+      Turning ideas into projects and experiences into growth.
+    </p>
 
-  <a href="#projects" class="btn">Explore My Work →</a>
+    <div class="buttons">
+      <a href="#projects" class="btn">Explore My Work →</a>
+      <a href="#about" class="btn btn-outline">About Me</a>
+    </div>
+  </div>
+
+  <div class="profile-wrap">
+    <div class="profile">YN</div>
+  </div>
 </header>
 
-<section id="about">
+<section id="about" class="reveal">
   <h2 class="section-title">About <span>Me.</span></h2>
   <p class="about">
     Hello! I'm Your Name. I'm someone who enjoys learning,
     discovering new things, and exploring technology and science.
     I believe every experience is an opportunity to improve,
     gain knowledge, and develop new skills.
-    This portfolio is where I share my journey, projects,
-    interests, and achievements.
+    This portfolio represents my journey, interests, projects,
+    and achievements.
   </p>
 </section>
 
-<section id="skills">
+<section id="skills" class="reveal">
   <h2 class="section-title">My <span>Skills.</span></h2>
   <div class="skills">
     <div class="skill">Problem Solving</div>
@@ -263,21 +437,21 @@ footer {
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
   <h2 class="section-title">Featured <span>Projects.</span></h2>
-  <div class="cards">
 
+  <div class="cards">
     <div class="card">
-      <div class="project-number">01</div>
+      <div class="number">01</div>
       <h3>ECOOPAD</h3>
       <p>
-        A reusable cooling pad concept designed
-        to provide comfort and help users cool down.
+        A reusable cooling pad concept designed to
+        provide comfort and help users cool down.
       </p>
     </div>
 
     <div class="card">
-      <div class="project-number">02</div>
+      <div class="number">02</div>
       <h3>Flywheel Project</h3>
       <p>
         An engineering project exploring rotational
@@ -286,24 +460,25 @@ footer {
     </div>
 
     <div class="card">
-      <div class="project-number">03</div>
+      <div class="number">03</div>
       <h3>Research Projects</h3>
       <p>
         Academic research involving investigation,
         data analysis, and scientific thinking.
       </p>
     </div>
-
   </div>
 </section>
 
-<section id="achievements">
+<section id="achievements" class="reveal">
   <h2 class="section-title">My <span>Journey.</span></h2>
+
   <div class="cards">
     <div class="card">
       <h3>Education</h3>
       <p>My academic journey and continuous learning experiences.</p>
     </div>
+
     <div class="card">
       <h3>Personal Growth</h3>
       <p>Developing my abilities through challenges and experiences.</p>
@@ -311,12 +486,14 @@ footer {
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact reveal">
   <h2 class="section-title">Get In <span>Touch.</span></h2>
+
   <p>
     Interested in my work or want to connect?
     Feel free to reach out.
   </p>
+
   <a href="mailto:your-email@example.com" class="btn">
     Contact Me →
   </a>
@@ -324,8 +501,38 @@ footer {
 
 <footer>
   © 2026 Your Name. All rights reserved.
-  <br>Designed with creativity and curiosity.
+  <br>Built with creativity and curiosity.
 </footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", open);
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(section => {
+  observer.observe(section);
+});
+</script>
 
 </body>
 </html>

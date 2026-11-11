@@ -4,393 +4,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080914">
-<title>Joseph Leonardo</title>
+<title>Joseph Leonardo | Portfolio</title>
 
 <style>
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-:root {
-  --blue: #65a5ff;
-  --purple: #a77aff;
-  --bg: #080914;
-  --card: #111426;
-  --muted: #a4abc3;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg);
-  color: #f5f5ff;
-  font-family: Arial, sans-serif;
-  line-height: 1.7;
-  overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #080812;
+    color: white;
+    line-height: 1.6;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  background: #5734d4;
-  filter: blur(150px);
-  opacity: .17;
-  top: 10%;
-  right: -180px;
-  pointer-events: none;
-  z-index: -1;
-}
-
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 8%;
-  background: #080914eF;
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid #252943;
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 8, 18, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #24213c;
 }
 
 .logo {
-  font-size: 19px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  background: linear-gradient(
-    90deg,
-    #65a5ff,
-    #a77aff,
-    #65a5ff
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: nameGlow 4s linear infinite;
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #7770ff, #d28aff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glow 3s infinite alternate;
 }
 
-@keyframes nameGlow {
-  to {
-    background-position: 200% center;
-  }
+@keyframes glow {
+    from { filter: drop-shadow(0 0 2px #7770ff); }
+    to { filter: drop-shadow(0 0 12px #a855f7); }
 }
 
-.nav-links {
-  display: flex;
-  gap: 23px;
+nav {
+    display: flex;
+    gap: 20px;
 }
 
-.nav-links a {
-  font-size: 13px;
-  color: var(--muted);
-  transition: .3s;
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-.nav-links a:hover {
-  color: var(--purple);
-}
-
-.menu-btn {
-  display: none;
-  background: none;
-  border: 1px solid #444b6b;
-  color: white;
-  border-radius: 7px;
-  padding: 7px 11px;
-  font-size: 19px;
-}
-
-.hero {
-  min-height: 85vh;
-  padding: 90px 9%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 45px;
-  background:
-    radial-gradient(ellipse at 15% 50%, #1649a52c, transparent 50%),
-    radial-gradient(ellipse at 85% 30%, #803caa30, transparent 50%);
-}
-
-.hero-content {
-  max-width: 620px;
-}
-
-.tag {
-  display: inline-block;
-  color: #8ebaff;
-  border: 1px solid #38558c;
-  background: #15244770;
-  border-radius: 30px;
-  padding: 7px 15px;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.hero h1 {
-  font-size: clamp(43px, 8vw, 76px);
-  line-height: 1.12;
-  margin: 23px 0;
-}
-
-.gradient {
-  background: linear-gradient(100deg,#69b7ff,#a477ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero p {
-  color: var(--muted);
-  max-width: 510px;
-  margin-bottom: 30px;
-}
-
-.buttons {
-  display: flex;
-  gap: 13px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 21px;
-  border-radius: 8px;
-  background: linear-gradient(100deg,#3279df,#804cce);
-  font-size: 13px;
-  font-weight: bold;
-  transition: .3s;
-}
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px #6550dd66;
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid #59658d;
-}
-
-.profile-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 220px;
-}
-
-.profile {
-  width: 210px;
-  height: 210px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  font-size: 65px;
-  font-weight: bold;
-  background: linear-gradient(145deg,#172e57,#24143f);
-  border: 2px solid #7775ff;
-  box-shadow: 0 0 35px #6461ff55,
-              inset 0 0 35px #5555ff22;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-13px); }
+nav a:hover {
+    color: #a78bfa;
 }
 
 section {
-  padding: 85px 9%;
-  scroll-margin-top: 70px;
+    padding: 90px 10%;
 }
 
-.section-title {
-  font-size: 32px;
-  margin-bottom: 28px;
-}
-
-.section-title span {
-  color: var(--purple);
-}
-
-.about {
-  color: var(--muted);
-  max-width: 750px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
-  gap: 20px;
-}
-
-.card {
-  background: linear-gradient(145deg,#151b30,#0f1221);
-  border: 1px solid #2a3552;
-  border-radius: 15px;
-  padding: 25px;
-  transition: .35s;
-}
-
-.card:hover {
-  transform: translateY(-7px);
-  border-color: #8c76ff;
-  box-shadow: 0 10px 30px #5c48ad30;
-}
-
-.card h3 {
-  color: #9ab8ff;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.number {
-  font-size: 26px;
-  font-weight: bold;
-  color: #a98aff;
-  margin-bottom: 10px;
-}
-
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-}
-
-.skill {
-  padding: 10px 17px;
-  border-radius: 30px;
-  border: 1px solid #424d75;
-  color: #cbd0ff;
-  background: #151a2e;
-  font-size: 13px;
-  transition: .3s;
-}
-
-.skill:hover {
-  background: #28254e;
-  border-color: var(--purple);
-  transform: translateY(-3px);
-}
-
-.contact {
-  background: radial-gradient(ellipse at center,#28205255,transparent 70%);
-}
-
-.contact p {
-  color: var(--muted);
-  margin-bottom: 22px;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #8189a4;
-  border-top: 1px solid #252943;
-  font-size: 12px;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media(max-width:650px) {
-  nav {
-    padding: 14px 6%;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 61px;
-    left: 0;
-    right: 0;
-    background: #0d1020;
-    padding: 20px;
-    flex-direction: column;
-    gap: 15px;
-    border-bottom: 1px solid #303958;
-  }
-
-  .nav-links.open {
+.hero {
+    min-height: 90vh;
     display: flex;
-  }
-
-  .hero {
-    min-height: auto;
-    padding: 80px 7%;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-  }
-
-  .profile-wrap {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .profile {
-    width: 145px;
-    height: 145px;
-    font-size: 45px;
-  }
-
-  section {
-    padding: 65px 7%;
-  }
-
-  .section-title {
-    font-size: 28px;
-  }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #191338, #080812 65%);
 }
 
-@media(prefers-reduced-motion:reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-  .profile-photo {
+.profile-photo {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #7665ff;
     box-shadow: 0 0 25px rgba(118, 101, 255, 0.5);
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 25px;
 }
-  
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.hero h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    background: linear-gradient(90deg, #7770ff, #d28aff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #b8b8c9;
+    margin: 12px 0 25px;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    background: linear-gradient(135deg, #6555ff, #a855f7);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px #6555ff66;
+}
+
+.section-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 35px;
+    color: #a78bfa;
+}
+
+.about {
+    background: #0d0d1b;
+}
+
+.about p {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    color: #c4c4d4;
+}
+
+.skills {
+    text-align: center;
+}
+
+.skill-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill {
+    background: #17152d;
+    border: 1px solid #5142a8;
+    padding: 12px 22px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+    background: #252047;
+}
+
+.projects {
+    background: #0d0d1b;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.project-card {
+    background: #17152d;
+    border: 1px solid #30295a;
+    border-radius: 15px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: #8b5cf6;
+    box-shadow: 0 10px 30px #6555ff22;
+}
+
+.project-card h3 {
+    color: #b9a4ff;
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: #b8b8c9;
+    font-size: 14px;
+}
+
+.journey {
+    text-align: center;
+}
+
+.journey p {
+    color: #b8b8c9;
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact {
+    background: #0d0d1b;
+    text-align: center;
+}
+
+.contact p {
+    color: #b8b8c9;
+}
+
 .contact-links {
     display: flex;
     justify-content: center;
@@ -414,132 +242,159 @@ footer {
     box-shadow: 0 5px 20px rgba(120, 90, 255, 0.4);
 }
 
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #080812;
+    color: #888;
+    font-size: 13px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 650px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 5%;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    section {
+        padding: 70px 7%;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">LeooWeb</div>
+<header>
+    <div class="logo">LeooWeb.</div>
 
-  <button class="menu-btn" id="menuBtn"
-    aria-label="Toggle navigation"
-    aria-expanded="false">☰</button>
-
-  <div class="nav-links" id="navLinks">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#achievements">Journey</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="hero-content">
-    <div class="tag">WELCOME TO MY WORLD</div>
-
-    <h1>Hello, I'm<br>
-      <span class="gradient">Joseph Leonardo.</span>
-    </h1>
-
-    <p>
-      A student, creative thinker, and lifelong learner.
-      Exploring technology, science, and new possibilities.
-      Turning ideas into projects and experiences into growth.
-    </p>
-
-    <div class="buttons">
-      <a href="#projects" class="btn">Explore My Work →</a>
-      <a href="#about" class="btn btn-outline">About Me</a>
-    </div>
-  </div>
-
-  <div class="profile-wrap">
-    <img class="profile-photo" src="profile.HEIC" alt="Joseph Leonardo">
-  </div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<section id="about" class="reveal">
-  <h2 class="section-title">About <span>Me.</span></h2>
-  <p class="about">
-    Hello! I'm Joseph Leonardo. I'm someone who enjoys learning,
-    discovering new things, and exploring technology and science.
-    I believe every experience is an opportunity to improve,
-    gain knowledge, and develop new skills.
-    This Website represents my journey, interests, projects,
-    and achievements.
-  </p>
+<section class="hero" id="home">
+    <img src="profile.HEIC"
+         alt="Joseph Leonardo"
+         class="profile-photo">
+
+    <h1>Joseph Leonardo</h1>
+    <p>Student | Future Innovator | Lifelong Learner</p>
+
+    <a href="#about" class="btn">Explore My Website</a>
 </section>
 
-<section id="skills" class="reveal">
-  <h2 class="section-title">My <span>Skills.</span></h2>
-  <div class="skills">
-    <div class="skill">Problem Solving</div>
-    <div class="skill">Critical Thinking</div>
-    <div class="skill">Research</div>
-    <div class="skill">Creativity</div>
-    <div class="skill">Communication</div>
-    <div class="skill">Technology</div>
-    <div class="skill">Teamwork</div>
-  </div>
+<section class="about reveal" id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <p>
+        Hello! I'm Joseph Leonardo. I am a student who enjoys
+        learning new things, exploring science and technology,
+        and discovering how things work. I believe that every
+        experience is an opportunity to improve, grow, and
+        develop new skills.
+    </p>
 </section>
 
-<section id="projects" class="reveal">
-  <h2 class="section-title">Featured <span>Projects.</span></h2>
+<section class="skills reveal" id="skills">
+    <h2 class="section-title">My Skills</h2>
 
-  <div class="cards">
-    <div class="card">
-      <div class="number">01</div>
-      <h3>ECOOPAD</h3>
-      <p>
-        A reusable cooling pad concept designed to
-        provide comfort and help users cool down.
-      </p>
+    <div class="skill-list">
+        <div class="skill">Problem Solving</div>
+        <div class="skill">Critical Thinking</div>
+        <div class="skill">Creativity</div>
+        <div class="skill">Research</div>
+        <div class="skill">Communication</div>
+        <div class="skill">Technology</div>
     </div>
-
-    <div class="card">
-      <div class="number">02</div>
-      <h3>Flywheel Project</h3>
-      <p>
-        An engineering project exploring rotational
-        motion, energy storage, and mechanical design.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="number">03</div>
-      <h3>Research Projects</h3>
-      <p>
-        Academic research involving investigation,
-        data analysis, and scientific thinking.
-      </p>
-    </div>
-  </div>
 </section>
 
-<section id="achievements" class="reveal">
-  <h2 class="section-title">My <span>Journey.</span></h2>
+<section class="projects reveal" id="projects">
+    <h2 class="section-title">My Projects</h2>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Education</h3>
-      <p>My academic journey and continuous learning experiences.</p>
-    </div>
+    <div class="project-grid">
 
-    <div class="card">
-      <h3>Personal Growth</h3>
-      <p>Developing my abilities through challenges and experiences.</p>
+        <div class="project-card">
+            <h3>ECOOPAD</h3>
+            <p>
+                A reusable cooling pad designed to provide
+                a convenient cooling experience during
+                hot weather and daily activities.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Flywheel Project</h3>
+            <p>
+                A school project that demonstrates rotational
+                motion, energy storage, and the principles
+                of physics.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Research Projects</h3>
+            <p>
+                Academic research projects that develop
+                my knowledge in research, analysis,
+                and problem solving.
+            </p>
+        </div>
+
     </div>
-  </div>
 </section>
 
+<section class="journey reveal" id="journey">
+    <h2 class="section-title">My Journey</h2>
 
-<section id="contact" class="contact">
-    <h2>Let's Connect</h2>
-    <p>Feel free to reach out through my social media accounts!</p>
+    <p>
+        Every project, challenge, and experience helps me
+        learn something new. My journey is still ongoing,
+        and I look forward to discovering more opportunities
+        and improving myself along the way.
+    </p>
+</section>
+
+<section class="contact reveal" id="contact">
+    <h2 class="section-title">Let's Connect</h2>
+
+    <p>
+        Feel free to reach out to me through my
+        social media accounts!
+    </p>
 
     <div class="contact-links">
+
         <a href="https://www.facebook.com/share/1EGZY46KiT/?mibextid=wwXIfr"
            target="_blank" rel="noopener noreferrer">
             Facebook
@@ -553,42 +408,26 @@ footer {
         <a href="mailto:leonardojoseph526@gmail.com">
             Email Me
         </a>
+
     </div>
 </section>
 
-
 <footer>
-  © 2026 Your Name. All rights reserved.
-  <br>Built with creativity and curiosity.
+    <p>© 2026 Joseph Leonardo. All Rights Reserved.</p>
+    <p>Designed with creativity and curiosity.</p>
 </footer>
 
 <script>
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded", open);
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-  });
-});
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach(section => {
-  observer.observe(section);
+    observer.observe(section);
 });
 </script>
 

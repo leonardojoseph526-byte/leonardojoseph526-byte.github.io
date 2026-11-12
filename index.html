@@ -16,382 +16,353 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #080d0b;
-    color: white;
-    line-height: 1.7;
+    background: #07130f;
+    color: #f4f4f4;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* CHRISTMAS SNOW */
-.snow {
-    position: fixed;
-    top: -30px;
-    color: white;
-    font-size: 18px;
-    pointer-events: none;
-    z-index: 99;
-    animation: snowfall 9s linear infinite;
-    opacity: 0.7;
-}
-
-.snow:nth-child(1) { left: 10%; animation-delay: 0s; }
-.snow:nth-child(2) { left: 30%; animation-delay: 3s; }
-.snow:nth-child(3) { left: 55%; animation-delay: 1s; }
-.snow:nth-child(4) { left: 75%; animation-delay: 5s; }
-.snow:nth-child(5) { left: 90%; animation-delay: 2s; }
-
-@keyframes snowfall {
-    0% { transform: translateY(-20px) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
-}
-
-/* HEADER */
 header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(8,13,11,0.95);
-    backdrop-filter: blur(12px);
+    background: rgba(5, 20, 14, 0.95);
+    border-bottom: 1px solid #b99242;
     padding: 18px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #245b3b;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
-    font-size: 23px;
+    color: #e5c36a;
+    font-size: 24px;
     font-weight: bold;
-    color: #e8c66a;
-    text-shadow: 0 0 12px #e8c66a66;
 }
 
 nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 17px;
+    gap: 15px;
 }
 
 nav a {
-    color: #ddd;
+    color: white;
     text-decoration: none;
     font-size: 14px;
-    transition: 0.3s;
 }
 
 nav a:hover {
-    color: #e8c66a;
+    color: #e5c36a;
 }
 
-/* HERO */
+section {
+    padding: 75px 8%;
+}
+
 .hero {
-    min-height: 88vh;
+    min-height: 85vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 50px 7%;
-    background: radial-gradient(circle at center, #173c28, #080d0b 70%);
+    flex-direction: column;
+    background: radial-gradient(circle, #173d2b, #07130f 70%);
 }
 
 .profile {
-    width: 180px;
-    height: 180px;
+    width: 155px;
+    height: 155px;
     border-radius: 50%;
+    border: 4px solid #d6b45c;
     object-fit: cover;
-    object-position: center;
-    border: 4px solid #e8c66a;
-    box-shadow: 0 0 30px #d5ad4b88;
-    margin-bottom: 25px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px #c49b4244;
 }
 
 .hero h1 {
-    font-size: clamp(35px, 7vw, 62px);
-    color: #e8c66a;
+    font-size: clamp(32px, 7vw, 55px);
+    color: #e5c36a;
 }
 
 .hero p {
-    color: #d4ded6;
     margin: 10px 0;
-    font-size: 17px;
+    color: #ddd;
 }
 
-.greeting {
-    color: #e8c66a !important;
-    font-weight: bold;
-    margin: 15px 0 25px !important;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #a51f32;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #155b37;
-    transform: translateY(-5px);
-}
-
-/* GENERAL SECTIONS */
-section {
-    padding: 85px 9%;
+.christmas {
+    color: #e5c36a;
+    margin-top: 15px;
 }
 
 .section-title {
+    color: #e5c36a;
+    font-size: 30px;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 32px;
-    color: #e8c66a;
-    margin-bottom: 30px;
 }
 
-.about {
-    background: #101b14;
-}
-
-.about p {
-    max-width: 750px;
+.content {
+    max-width: 850px;
     margin: auto;
     text-align: center;
-    color: #cbd5ce;
 }
 
-/* SKILLS */
-.skills {
-    text-align: center;
-}
-
-.skills-intro {
-    color: #cbd5ce;
-    max-width: 650px;
-    margin: -12px auto 30px;
-}
-
-.skill-list {
+.card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 18px;
+    margin-top: 30px;
 }
 
-.skill {
-    background: linear-gradient(145deg, #142b1d, #0d1912);
-    border: 1px solid #28734a;
-    border-radius: 15px;
-    padding: 23px 18px;
+.card {
+    background: #10251b;
+    border: 1px solid #466747;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
     transition: 0.3s;
 }
 
-.skill:hover {
-    transform: translateY(-7px);
-    border-color: #e8c66a;
-    box-shadow: 0 8px 25px #0005;
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #e5c36a;
 }
 
-.skill-icon {
-    font-size: 30px;
-    margin-bottom: 8px;
+.card h3 {
+    color: #e5c36a;
+    margin-bottom: 10px;
 }
 
-.skill h3 {
-    color: #e8c66a;
-    margin-bottom: 7px;
-}
-
-.skill p {
-    color: #cbd5ce;
+.card p {
+    color: #ccc;
     font-size: 14px;
 }
 
-/* QUIZ */
-.quiz-section {
-    background: #101b14;
-}
-
-.quiz-intro {
-    color: #cbd5ce;
-    text-align: center;
-    margin: -12px auto 30px;
-}
-
-.quiz-container {
-    max-width: 720px;
-    margin: auto;
-}
-
-.question {
-    background: #14251a;
-    border: 1px solid #285b3c;
-    border-radius: 14px;
-    padding: 22px;
-    margin-bottom: 18px;
-}
-
-.question h3 {
-    color: #e8c66a;
-    margin-bottom: 14px;
-}
-
-.options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.option {
-    padding: 11px;
-    border: 1px solid #39714d;
-    border-radius: 9px;
-    background: #0d1912;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
-}
-
-.option:hover:not(:disabled) {
-    background: #245b3b;
-}
-
-.option:disabled {
-    cursor: default;
-    opacity: 0.8;
-}
-
-.option.correct {
-    background: #17613a;
-    border-color: #68d69b;
-}
-
-.option.wrong {
-    background: #7b2632;
-    border-color: #ed8a95;
-}
-
-.question-feedback {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #e8c66a;
-}
-
-#quiz-result {
-    text-align: center;
-    margin-top: 25px;
-    color: #e8c66a;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#reset-quiz {
-    display: none;
-    margin: 18px auto 0;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-/* JOURNEY */
-.journey {
-    text-align: center;
-}
-
-.journey p {
+.timeline {
     max-width: 700px;
-    margin: auto;
-    color: #cbd5ce;
+    margin: 25px auto 0;
+    border-left: 2px solid #d6b45c;
+    padding-left: 25px;
+    text-align: left;
 }
 
-/* CONTACT */
-.contact {
-    background: #101b14;
-    text-align: center;
+.timeline div {
+    margin-bottom: 25px;
 }
 
-.contact p {
-    color: #cbd5ce;
-    margin-bottom: 20px;
+.timeline h3 {
+    color: #e5c36a;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 14px;
     margin-top: 25px;
 }
 
-.contact-links a {
+.contact-links a, .action-btn {
     display: inline-block;
+    background: #b18b3e;
+    color: #07130f;
+    padding: 11px 20px;
+    border-radius: 25px;
     text-decoration: none;
-    color: white;
-    background: #a51f32;
-    padding: 13px 25px;
-    border: 1px solid #e8c66a;
-    border-radius: 10px;
     font-weight: bold;
-    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-.contact-links a:hover {
-    background: #155b37;
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px #e8c66a44;
+.contact-links a:hover, .action-btn:hover {
+    background: #e5c36a;
+    transform: translateY(-2px);
 }
 
-/* FOOTER */
+#quiz {
+    background: #0a1c13;
+}
+
+.quiz-panel {
+    max-width: 650px;
+    margin: 25px auto 0;
+    background: #10251b;
+    border: 1px solid #9b7b39;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+}
+
+.quiz-panel h3 {
+    color: #e5c36a;
+    margin-bottom: 12px;
+}
+
+.quiz-panel p {
+    color: #ddd;
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.quiz-top span {
+    color: #e5c36a;
+    font-weight: bold;
+}
+
+.small-btn {
+    background: transparent;
+    color: #e5c36a;
+    border: 1px solid #9b7b39;
+    border-radius: 20px;
+    padding: 7px 13px;
+    cursor: pointer;
+}
+
+.progress {
+    width: 100%;
+    height: 8px;
+    background: #26392e;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #d6b45c;
+    transition: width 0.3s;
+}
+
+#question-text {
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+.answers {
+    display: grid;
+    gap: 11px;
+}
+
+.answer-btn {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #536b55;
+    background: #193425;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.answer-btn:hover:not(:disabled) {
+    background: #28533a;
+    border-color: #e5c36a;
+}
+
+.answer-btn:disabled {
+    cursor: default;
+    opacity: 0.9;
+}
+
+.answer-btn.correct {
+    background: #245b38;
+    border-color: #6bd48b;
+}
+
+.answer-btn.wrong {
+    background: #612c2c;
+    border-color: #e87979;
+}
+
+#feedback {
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+#next-button {
+    margin-top: 20px;
+}
+
+#quiz-result h3 {
+    font-size: 25px;
+}
+
+#final-score {
+    color: #e5c36a;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+#quiz-resume {
+    border: 1px dashed #d6b45c;
+}
+
 footer {
     text-align: center;
     padding: 25px;
-    background: #080d0b;
-    color: #b6c4b9;
-    border-top: 1px solid #245b3b;
+    background: #04100b;
+    color: #aaa;
     font-size: 13px;
 }
 
-/* SCROLL ANIMATION */
+.snowflake {
+    position: fixed;
+    top: -15px;
+    color: white;
+    pointer-events: none;
+    z-index: 200;
+    animation: fall linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
 .reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: 0.8s ease;
+    animation: appear 0.7s ease;
 }
 
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* MOBILE */
-@media (max-width: 650px) {
+[hidden] {
+    display: none !important;
+}
+
+@media(max-width: 600px) {
     header {
-        flex-direction: column;
-        gap: 12px;
+        justify-content: center;
     }
 
     nav {
         justify-content: center;
-        gap: 12px;
-    }
-
-    nav a {
-        font-size: 12px;
     }
 
     section {
-        padding: 65px 7%;
+        padding: 60px 6%;
     }
 
-    .options {
-        grid-template-columns: 1fr;
+    .quiz-panel {
+        padding: 20px 15px;
     }
 }
 </style>
@@ -399,330 +370,345 @@ footer {
 
 <body>
 
-<!-- FALLING SNOW -->
-<div class="snow">❄</div>
-<div class="snow">❄</div>
-<div class="snow">❄</div>
-<div class="snow">❄</div>
-<div class="snow">❄</div>
-
 <header>
-    <div class="logo">LeooWeb. 🎄</div>
+    <div class="logo">LeooWeb.</div>
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#quiz">Quiz</a>
         <a href="#journey">Journey</a>
+        <a href="#quiz">Quiz</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<!-- HOME -->
 <section class="hero" id="home">
-
-    <img class="profile"
-         src="profile.jpeg"
-         alt="Joseph's profile picture">
-
+    <img src="profile.jpeg" alt="Joseph's profile picture" class="profile">
     <h1>Joseph Leonardo</h1>
-
     <p>Student | Curious Mind | Lifelong Learner</p>
-
-    <p class="greeting">🎄 Advance Merry Christmas! 🎄</p>
-
-    <a href="#about" class="btn">Explore My Website</a>
-
+    <p class="christmas">🎄 Advance Merry Christmas! 🎄</p>
+    <p>Welcome to my little corner of the internet.</p>
 </section>
 
-<!-- ABOUT -->
-<section class="about reveal" id="about">
-
-    <h2 class="section-title">About Me</h2>
-
-    <p>
-        Hello! I'm Joseph Leonardo. I am a student who enjoys
-        learning new things, exploring science and technology,
-        and discovering how things work. I also love axolotls
-        and enjoy playing chess. I believe that every experience
-        is an opportunity to improve, grow, and develop new skills.
-    </p>
-
-</section>
-
-<!-- SKILLS -->
-<section class="skills reveal" id="skills">
-
-    <h2 class="section-title">My Skills</h2>
-
-    <p class="skills-intro">
-        These are some of the abilities I continue to develop
-        through learning, school activities, and everyday experiences.
-    </p>
-
-    <div class="skill-list">
-
-        <div class="skill">
-            <div class="skill-icon">🧩</div>
-            <h3>Problem Solving</h3>
-            <p>Finding ways to understand problems and work toward solutions.</p>
-        </div>
-
-        <div class="skill">
-            <div class="skill-icon">🧠</div>
-            <h3>Critical Thinking</h3>
-            <p>Analyzing information and looking at things from different perspectives.</p>
-        </div>
-
-        <div class="skill">
-            <div class="skill-icon">🔬</div>
-            <h3>Science Exploration</h3>
-            <p>Learning about scientific ideas and discovering how things work.</p>
-        </div>
-
-        <div class="skill">
-            <div class="skill-icon">💻</div>
-            <h3>Technology</h3>
-            <p>Exploring digital tools and learning how to create useful things.</p>
-        </div>
-
-        <div class="skill">
-            <div class="skill-icon">💬</div>
-            <h3>Communication</h3>
-            <p>Sharing ideas and expressing thoughts with others.</p>
-        </div>
-
-        <div class="skill">
-            <div class="skill-icon">📚</div>
-            <h3>Continuous Learning</h3>
-            <p>Staying curious and always looking for opportunities to improve.</p>
-        </div>
-
+<section id="about">
+    <div class="content">
+        <h2 class="section-title">About Me</h2>
+        <p>
+            Hello! I'm Joseph Leonardo, a student who enjoys learning new things
+            and exploring different ideas. I'm interested in science, technology,
+            and understanding how the world works.
+        </p>
+        <p style="margin-top: 15px;">
+            I also enjoy playing chess, learning about axolotls, and discovering
+            things that make me curious. This website is a small space where
+            I can share a little about myself.
+        </p>
     </div>
-
 </section>
 
-<!-- PERSONAL QUIZ -->
-<section class="quiz-section reveal" id="quiz">
-
-    <h2 class="section-title">How Well Do You Know Me?</h2>
-
-    <p class="quiz-intro">
-        Think you know me? Take this little quiz and see how many
-        questions you can answer correctly!
-    </p>
-
-    <div class="quiz-container">
-
-        <div class="question" data-answer="Axolotl">
-            <h3>1. Which animal do I love?</h3>
-            <div class="options">
-                <button class="option">Cat</button>
-                <button class="option">Axolotl</button>
-                <button class="option">Dog</button>
-                <button class="option">Rabbit</button>
+<section id="skills">
+    <div class="content">
+        <h2 class="section-title">My Skills</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>🧩 Problem Solving</h3>
+                <p>Finding ways to understand and solve different problems.</p>
             </div>
-            <p class="question-feedback"></p>
-        </div>
-
-        <div class="question" data-answer="Chess">
-            <h3>2. Which board game do I enjoy playing?</h3>
-            <div class="options">
-                <button class="option">Checkers</button>
-                <button class="option">Monopoly</button>
-                <button class="option">Chess</button>
-                <button class="option">Scrabble</button>
+            <div class="card">
+                <h3>🧠 Critical Thinking</h3>
+                <p>Analyzing information and looking at things from different perspectives.</p>
             </div>
-            <p class="question-feedback"></p>
-        </div>
-
-        <div class="question" data-answer="Science">
-            <h3>3. Which subject do I particularly enjoy?</h3>
-            <div class="options">
-                <button class="option">History</button>
-                <button class="option">Science</button>
-                <button class="option">Literature</button>
-                <button class="option">Arts</button>
+            <div class="card">
+                <h3>🔬 Science Exploration</h3>
+                <p>Learning about scientific ideas and how things work.</p>
             </div>
-            <p class="question-feedback"></p>
-        </div>
-
-        <div class="question" data-answer="LeooWeb">
-            <h3>4. What is the name of my website?</h3>
-            <div class="options">
-                <button class="option">JosephSite</button>
-                <button class="option">MyPortfolio</button>
-                <button class="option">LeooWeb</button>
-                <button class="option">LeoSpace</button>
+            <div class="card">
+                <h3>💻 Technology</h3>
+                <p>Exploring digital tools and learning how to use them.</p>
             </div>
-            <p class="question-feedback"></p>
-        </div>
-
-        <div class="question" data-answer="Technology">
-            <h3>5. What topic am I interested in exploring?</h3>
-            <div class="options">
-                <button class="option">Technology</button>
-                <button class="option">Cooking</button>
-                <button class="option">Fashion</button>
-                <button class="option">Gardening</button>
+            <div class="card">
+                <h3>💬 Communication</h3>
+                <p>Sharing ideas and working with other people.</p>
             </div>
-            <p class="question-feedback"></p>
+            <div class="card">
+                <h3>📚 Continuous Learning</h3>
+                <p>Always looking for something new to learn and improve.</p>
+            </div>
         </div>
-
-        <div id="quiz-result">Score: 0 / 5</div>
-
-        <button class="btn" id="reset-quiz">Try Again</button>
-
     </div>
-
 </section>
 
-<!-- JOURNEY -->
-<section class="journey reveal" id="journey">
-
-    <h2 class="section-title">My Journey</h2>
-
-    <p>
-        Every challenge and experience helps me learn something new.
-        My journey is still ongoing, and I look forward to discovering
-        more opportunities, exploring new ideas, and improving myself
-        along the way.
-    </p>
-
-</section>
-
-<!-- CONTACT -->
-<section class="contact reveal" id="contact">
-
-    <h2 class="section-title">Let's Connect 🎄</h2>
-
-    <p>
-        Feel free to reach out through my social media accounts
-        or send me an email!
-    </p>
-
-    <div class="contact-links">
-
-        <a href="https://www.facebook.com/share/1EGZY46KiT/?mibextid=wwXIfr"
-           target="_blank" rel="noopener noreferrer">
-            Facebook
-        </a>
-
-        <a href="https://www.tiktok.com/@leoshhahs"
-           target="_blank" rel="noopener noreferrer">
-            TikTok
-        </a>
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardojoseph526@gmail.com"
-           target="_blank" rel="noopener noreferrer">
-            Email Me
-        </a>
-
+<section id="journey">
+    <div class="content">
+        <h2 class="section-title">My Journey</h2>
+        <div class="timeline">
+            <div>
+                <h3>My School Life</h3>
+                <p>Learning new lessons, facing challenges, and gaining experiences.</p>
+            </div>
+            <div>
+                <h3>Discovering Technology</h3>
+                <p>Exploring websites, digital tools, and different ways to create things.</p>
+            </div>
+            <div>
+                <h3>Looking Ahead</h3>
+                <p>Continuing to learn, improve, and discover new possibilities.</p>
+            </div>
+        </div>
     </div>
+</section>
 
+<section id="quiz">
+    <div class="content">
+        <h2 class="section-title">🎁 How Well Do You Know Me?</h2>
+        <p>Think you know me? Let's see how many questions you can get right!</p>
+
+        <div class="quiz-panel" id="quiz-intro">
+            <h3>Welcome to My Quiz!</h3>
+            <p>There are 5 questions. Test what you know about me and see your final score.</p>
+            <br>
+            <button class="action-btn" id="play-button">▶ Play</button>
+        </div>
+
+        <div class="quiz-panel" id="quiz-resume" hidden>
+            <h3>⏸ Quiz Minimized</h3>
+            <p>Your progress is saved. Ready to continue?</p>
+            <br>
+            <button class="action-btn" id="continue-button">Continue Quiz</button>
+        </div>
+
+        <div class="quiz-panel" id="quiz-game" hidden>
+            <div class="quiz-top">
+                <span id="question-counter">Question 1 of 5</span>
+                <button class="small-btn" id="minimize-button">Minimize</button>
+            </div>
+
+            <div class="progress">
+                <div id="progress-fill"></div>
+            </div>
+
+            <h3 id="question-text"></h3>
+            <div class="answers" id="answer-options"></div>
+            <p id="feedback" aria-live="polite"></p>
+            <button class="action-btn" id="next-button" hidden>Next Question →</button>
+        </div>
+
+        <div class="quiz-panel" id="quiz-result" hidden>
+            <h3>🎉 Quiz Completed!</h3>
+            <p>Your final score is:</p>
+            <div id="final-score">0/5</div>
+            <p id="result-message"></p>
+            <br>
+            <button class="action-btn" id="play-again-button">↻ Play Again</button>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="content">
+        <h2 class="section-title">Contact Me</h2>
+        <p>Want to connect? Find me through these platforms.</p>
+
+        <div class="contact-links">
+            <a href="https://www.facebook.com/share/1EGZY46KiT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+
+            <a href="https://www.tiktok.com/@leoshhahs" target="_blank" rel="noopener noreferrer">TikTok</a>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardojoseph526@gmail.com" target="_blank" rel="noopener noreferrer">Email Me</a>
+        </div>
+    </div>
 </section>
 
 <footer>
-    <p>© 2026 Joseph Leonardo. All Rights Reserved.</p>
-    <p>Made with curiosity and a little Christmas magic. 🎄</p>
+    <p>© 2026 Joseph Leonardo | LeooWeb.</p>
+    <p>Made with curiosity and a little Christmas spirit 🎄</p>
 </footer>
 
 <script>
+const questions = [
+    {
+        question: "Which animal do I love?",
+        options: ["Cat", "Axolotl", "Dog", "Rabbit"],
+        answer: "Axolotl"
+    },
+    {
+        question: "What game do I enjoy playing?",
+        options: ["Mobile Legends", "Roblox", "Chess", "None of the Above"],
+        answer: "Chess"
+    },
+    {
+        question: "Which subject do I like?",
+        options: [
+            "Mathematics",
+            "Media and Information Literacy (MIL)",
+            "Physical Education",
+            "History"
+        ],
+        answer: "Media and Information Literacy (MIL)"
+    },
+    {
+        question: "What is my classroom number?",
+        options: ["308", "307", "306", "305"],
+        answer: "307"
+    },
+    {
+        question: "What is the name of my website?",
+        options: ["JosephSite", "MyPortfolio", "LeooWeb", "LeoSpace"],
+        answer: "LeooWeb"
+    }
+];
 
-/* SCROLL ANIMATION */
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+const intro = document.getElementById("quiz-intro");
+const game = document.getElementById("quiz-game");
+const resume = document.getElementById("quiz-resume");
+const result = document.getElementById("quiz-result");
+
+const questionText = document.getElementById("question-text");
+const optionsBox = document.getElementById("answer-options");
+const feedback = document.getElementById("feedback");
+const nextButton = document.getElementById("next-button");
+const counter = document.getElementById("question-counter");
+const progressFill = document.getElementById("progress-fill");
+
+function showPanel(panel) {
+    intro.hidden = panel !== intro;
+    game.hidden = panel !== game;
+    resume.hidden = panel !== resume;
+    result.hidden = panel !== result;
+}
+
+function startQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    answered = false;
+    showPanel(game);
+    loadQuestion();
+}
+
+function loadQuestion() {
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    counter.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+    questionText.textContent = q.question;
+    progressFill.style.width =
+        `${(currentQuestion / questions.length) * 100}%`;
+
+    feedback.textContent = "";
+    nextButton.hidden = true;
+    nextButton.textContent =
+        currentQuestion === questions.length - 1
+        ? "See My Score →"
+        : "Next Question →";
+
+    optionsBox.innerHTML = "";
+
+    q.options.forEach(option => {
+        const button = document.createElement("button");
+        button.className = "answer-btn";
+        button.textContent = option;
+
+        button.addEventListener("click", () => selectAnswer(button, option, q.answer));
+
+        optionsBox.appendChild(button);
+    });
+}
+
+function selectAnswer(button, selected, correct) {
+    if (answered) return;
+
+    answered = true;
+
+    const buttons = optionsBox.querySelectorAll("button");
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+
+        if (btn.textContent === correct) {
+            btn.classList.add("correct");
         }
     });
-}, { threshold: 0.12 });
 
-document.querySelectorAll(".reveal").forEach(section => {
-    observer.observe(section);
+    if (selected === correct) {
+        score++;
+        feedback.textContent = "✓ Correct! Nice one!";
+        feedback.style.color = "#80e69b";
+    } else {
+        button.classList.add("wrong");
+        feedback.textContent = `Not quite! The correct answer is ${correct}.`;
+        feedback.style.color = "#f1a0a0";
+    }
+
+    progressFill.style.width =
+        `${((currentQuestion + 1) / questions.length) * 100}%`;
+
+    nextButton.hidden = false;
+}
+
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        loadQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function showResults() {
+    showPanel(result);
+
+    document.getElementById("final-score").textContent =
+        `${score}/${questions.length}`;
+
+    let message = "";
+
+    if (score === 5) {
+        message = "Perfect score! You really know me!";
+    } else if (score >= 3) {
+        message = "Not bad! You know a few things about me.";
+    } else {
+        message = "Looks like you still have a lot to learn about me!";
+    }
+
+    document.getElementById("result-message").textContent = message;
+}
+
+document.getElementById("play-button").addEventListener("click", startQuiz);
+
+document.getElementById("continue-button").addEventListener("click", () => {
+    showPanel(game);
 });
 
-/* PERSONAL QUIZ */
-const questions = document.querySelectorAll(".question");
-const result = document.getElementById("quiz-result");
-const resetButton = document.getElementById("reset-quiz");
-
-let score = 0;
-let answered = 0;
-
-questions.forEach(question => {
-
-    const correctAnswer = question.dataset.answer;
-    const options = question.querySelectorAll(".option");
-    const feedback = question.querySelector(".question-feedback");
-
-    options.forEach(option => {
-
-        option.addEventListener("click", () => {
-
-            if (question.dataset.answered === "true") return;
-
-            question.dataset.answered = "true";
-            answered++;
-
-            if (option.textContent.trim() === correctAnswer) {
-                score++;
-                option.classList.add("correct");
-                feedback.textContent = "Correct! Nice one! ✓";
-            } else {
-                option.classList.add("wrong");
-                feedback.textContent = "Not quite! The answer is " + correctAnswer + ".";
-            }
-
-            options.forEach(button => {
-                button.disabled = true;
-
-                if (button.textContent.trim() === correctAnswer) {
-                    button.classList.add("correct");
-                }
-            });
-
-            result.textContent = "Score: " + score + " / 5";
-
-            if (answered === questions.length) {
-                result.textContent =
-                    "You got " + score + " out of 5! " +
-                    (score === 5 ? "You know me really well! 🎉" :
-                    score >= 3 ? "Pretty good! 😎" :
-                    "Looks like you need to know me better! 😂");
-
-                resetButton.style.display = "block";
-            }
-        });
-
-    });
-
+document.getElementById("minimize-button").addEventListener("click", () => {
+    showPanel(resume);
 });
 
-/* RESET QUIZ */
-resetButton.addEventListener("click", () => {
+nextButton.addEventListener("click", nextQuestion);
 
-    score = 0;
-    answered = 0;
+document.getElementById("play-again-button").addEventListener("click", startQuiz);
 
-    questions.forEach(question => {
+// Christmas snowflakes
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.className = "snowflake";
+    snowflake.textContent = "❄";
 
-        delete question.dataset.answered;
+    snowflake.style.left = Math.random() * 100 + "vw";
+    snowflake.style.fontSize = (10 + Math.random() * 12) + "px";
+    snowflake.style.animationDuration = (5 + Math.random() * 7) + "s";
 
-        question.querySelectorAll(".option").forEach(button => {
-            button.disabled = false;
-            button.classList.remove("correct", "wrong");
-        });
+    document.body.appendChild(snowflake);
 
-        question.querySelector(".question-feedback").textContent = "";
+    setTimeout(() => snowflake.remove(), 12000);
+}
 
-    });
-
-    result.textContent = "Score: 0 / 5";
-    resetButton.style.display = "none";
-
-});
-
+setInterval(createSnowflake, 500);
 </script>
 
 </body>

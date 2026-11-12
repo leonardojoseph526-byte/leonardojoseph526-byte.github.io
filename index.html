@@ -4,8 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Joseph Leonardo |Portfolio</title>
+<title>Joseph Leonardo | Leo Web</title>
 
 <style>
 * {
@@ -23,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 
-/* SNOW ANIMATION */
+/* CHRISTMAS SNOW */
 .snow {
     position: fixed;
     top: -30px;
@@ -46,12 +45,12 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* NAVIGATION */
+/* HEADER */
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8, 13, 11, 0.95);
+    background: rgba(8,13,11,0.95);
     backdrop-filter: blur(12px);
     padding: 18px 7%;
     display: flex;
@@ -93,23 +92,17 @@ nav a:hover {
     align-items: center;
     text-align: center;
     padding: 50px 7%;
-    background:
-        radial-gradient(circle at center, #173c28, #080d0b 70%);
+    background: radial-gradient(circle at center, #173c28, #080d0b 70%);
 }
 
 .profile {
-    width: 175px;
-    height: 175px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #155b37, #a51f32);
+    object-fit: cover;
+    object-position: center;
     border: 4px solid #e8c66a;
-    box-shadow: 0 0 30px #d5ad4b66;
-    font-size: 65px;
-    font-weight: bold;
-    color: white;
+    box-shadow: 0 0 30px #d5ad4b88;
     margin-bottom: 25px;
     animation: float 3s ease-in-out infinite;
 }
@@ -126,8 +119,14 @@ nav a:hover {
 
 .hero p {
     color: #d4ded6;
-    margin: 12px 0 25px;
+    margin: 10px 0;
     font-size: 17px;
+}
+
+.greeting {
+    color: #e8c66a !important;
+    font-weight: bold;
+    margin: 15px 0 25px !important;
 }
 
 .btn {
@@ -145,7 +144,7 @@ nav a:hover {
     transform: translateY(-5px);
 }
 
-/* SECTIONS */
+/* GENERAL SECTIONS */
 section {
     padding: 85px 9%;
 }
@@ -168,62 +167,137 @@ section {
     color: #cbd5ce;
 }
 
+/* SKILLS */
 .skills {
     text-align: center;
 }
 
+.skills-intro {
+    color: #cbd5ce;
+    max-width: 650px;
+    margin: -12px auto 30px;
+}
+
 .skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
 }
 
 .skill {
-    background: #142b1d;
+    background: linear-gradient(145deg, #142b1d, #0d1912);
     border: 1px solid #28734a;
-    padding: 12px 22px;
-    border-radius: 10px;
+    border-radius: 15px;
+    padding: 23px 18px;
     transition: 0.3s;
 }
 
 .skill:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
     border-color: #e8c66a;
+    box-shadow: 0 8px 25px #0005;
 }
 
-/* PROJECTS */
-.projects {
+.skill-icon {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.skill h3 {
+    color: #e8c66a;
+    margin-bottom: 7px;
+}
+
+.skill p {
+    color: #cbd5ce;
+    font-size: 14px;
+}
+
+/* QUIZ */
+.quiz-section {
     background: #101b14;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
+.quiz-intro {
+    color: #cbd5ce;
+    text-align: center;
+    margin: -12px auto 30px;
 }
 
-.project-card {
+.quiz-container {
+    max-width: 720px;
+    margin: auto;
+}
+
+.question {
     background: #14251a;
     border: 1px solid #285b3c;
-    border-radius: 15px;
-    padding: 25px;
-    transition: 0.3s;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 18px;
 }
 
-.project-card:hover {
-    transform: translateY(-8px);
-    border-color: #e8c66a;
-}
-
-.project-card h3 {
+.question h3 {
     color: #e8c66a;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
-.project-card p {
-    color: #cbd5ce;
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.option {
+    padding: 11px;
+    border: 1px solid #39714d;
+    border-radius: 9px;
+    background: #0d1912;
+    color: white;
+    cursor: pointer;
     font-size: 14px;
+    transition: 0.2s;
+}
+
+.option:hover:not(:disabled) {
+    background: #245b3b;
+}
+
+.option:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.option.correct {
+    background: #17613a;
+    border-color: #68d69b;
+}
+
+.option.wrong {
+    background: #7b2632;
+    border-color: #ed8a95;
+}
+
+.question-feedback {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #e8c66a;
+}
+
+#quiz-result {
+    text-align: center;
+    margin-top: 25px;
+    color: #e8c66a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#reset-quiz {
+    display: none;
+    margin: 18px auto 0;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 /* JOURNEY */
@@ -237,7 +311,7 @@ section {
     color: #cbd5ce;
 }
 
-/* CONTACTS */
+/* CONTACT */
 .contact {
     background: #101b14;
     text-align: center;
@@ -315,6 +389,10 @@ footer {
     section {
         padding: 65px 7%;
     }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
@@ -330,31 +408,34 @@ footer {
 
 <header>
     <div class="logo">LeooWeb. 🎄</div>
-
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
+        <a href="#quiz">Quiz</a>
         <a href="#journey">Journey</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
+<!-- HOME -->
 <section class="hero" id="home">
 
-    <div class="profile">JL</div>
+    <img class="profile"
+         src="profile.jpeg"
+         alt="Joseph's profile picture">
 
     <h1>Joseph Leonardo</h1>
 
-    <p>Student | Future Innovator | Lifelong Learner</p>
+    <p>Student | Curious Mind | Lifelong Learner</p>
 
-    <p>🎄 Merry Christmas and Happy Holidays! 🎄</p>
+    <p class="greeting">🎄 Advance Merry Christmas! 🎄</p>
 
     <a href="#about" class="btn">Explore My Website</a>
 
 </section>
 
+<!-- ABOUT -->
 <section class="about reveal" id="about">
 
     <h2 class="section-title">About Me</h2>
@@ -362,84 +443,162 @@ footer {
     <p>
         Hello! I'm Joseph Leonardo. I am a student who enjoys
         learning new things, exploring science and technology,
-        and discovering how things work. I believe that every
-        experience is an opportunity to improve, grow, and
-        develop new skills.
+        and discovering how things work. I also love axolotls
+        and enjoy playing chess. I believe that every experience
+        is an opportunity to improve, grow, and develop new skills.
     </p>
 
 </section>
 
+<!-- SKILLS -->
 <section class="skills reveal" id="skills">
 
     <h2 class="section-title">My Skills</h2>
 
+    <p class="skills-intro">
+        These are some of the abilities I continue to develop
+        through learning, school activities, and everyday experiences.
+    </p>
+
     <div class="skill-list">
-        <div class="skill">Problem Solving</div>
-        <div class="skill">Critical Thinking</div>
-        <div class="skill">Creativity</div>
-        <div class="skill">Research</div>
-        <div class="skill">Communication</div>
-        <div class="skill">Technology</div>
-    </div>
 
-</section>
-
-<section class="projects reveal" id="projects">
-
-    <h2 class="section-title">My Projects</h2>
-
-    <div class="project-grid">
-
-        <div class="project-card">
-            <h3>ECOOPAD</h3>
-            <p>
-                A reusable cooling pad designed to provide
-                a convenient cooling experience during
-                hot weather and daily activities.
-            </p>
+        <div class="skill">
+            <div class="skill-icon">🧩</div>
+            <h3>Problem Solving</h3>
+            <p>Finding ways to understand problems and work toward solutions.</p>
         </div>
 
-        <div class="project-card">
-            <h3>Flywheel Project</h3>
-            <p>
-                A school project demonstrating rotational
-                motion, energy storage, and the principles
-                of physics.
-            </p>
+        <div class="skill">
+            <div class="skill-icon">🧠</div>
+            <h3>Critical Thinking</h3>
+            <p>Analyzing information and looking at things from different perspectives.</p>
         </div>
 
-        <div class="project-card">
-            <h3>Research Projects</h3>
-            <p>
-                Academic research projects that develop
-                my knowledge in research, analysis,
-                and problem solving.
-            </p>
+        <div class="skill">
+            <div class="skill-icon">🔬</div>
+            <h3>Science Exploration</h3>
+            <p>Learning about scientific ideas and discovering how things work.</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">💻</div>
+            <h3>Technology</h3>
+            <p>Exploring digital tools and learning how to create useful things.</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">💬</div>
+            <h3>Communication</h3>
+            <p>Sharing ideas and expressing thoughts with others.</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">📚</div>
+            <h3>Continuous Learning</h3>
+            <p>Staying curious and always looking for opportunities to improve.</p>
         </div>
 
     </div>
 
 </section>
 
+<!-- PERSONAL QUIZ -->
+<section class="quiz-section reveal" id="quiz">
+
+    <h2 class="section-title">How Well Do You Know Me?</h2>
+
+    <p class="quiz-intro">
+        Think you know me? Take this little quiz and see how many
+        questions you can answer correctly!
+    </p>
+
+    <div class="quiz-container">
+
+        <div class="question" data-answer="Axolotl">
+            <h3>1. Which animal do I love?</h3>
+            <div class="options">
+                <button class="option">Cat</button>
+                <button class="option">Axolotl</button>
+                <button class="option">Dog</button>
+                <button class="option">Rabbit</button>
+            </div>
+            <p class="question-feedback"></p>
+        </div>
+
+        <div class="question" data-answer="Chess">
+            <h3>2. Which board game do I enjoy playing?</h3>
+            <div class="options">
+                <button class="option">Checkers</button>
+                <button class="option">Monopoly</button>
+                <button class="option">Chess</button>
+                <button class="option">Scrabble</button>
+            </div>
+            <p class="question-feedback"></p>
+        </div>
+
+        <div class="question" data-answer="Science">
+            <h3>3. Which subject do I particularly enjoy?</h3>
+            <div class="options">
+                <button class="option">History</button>
+                <button class="option">Science</button>
+                <button class="option">Literature</button>
+                <button class="option">Arts</button>
+            </div>
+            <p class="question-feedback"></p>
+        </div>
+
+        <div class="question" data-answer="LeooWeb">
+            <h3>4. What is the name of my website?</h3>
+            <div class="options">
+                <button class="option">JosephSite</button>
+                <button class="option">MyPortfolio</button>
+                <button class="option">LeooWeb</button>
+                <button class="option">LeoSpace</button>
+            </div>
+            <p class="question-feedback"></p>
+        </div>
+
+        <div class="question" data-answer="Technology">
+            <h3>5. What topic am I interested in exploring?</h3>
+            <div class="options">
+                <button class="option">Technology</button>
+                <button class="option">Cooking</button>
+                <button class="option">Fashion</button>
+                <button class="option">Gardening</button>
+            </div>
+            <p class="question-feedback"></p>
+        </div>
+
+        <div id="quiz-result">Score: 0 / 5</div>
+
+        <button class="btn" id="reset-quiz">Try Again</button>
+
+    </div>
+
+</section>
+
+<!-- JOURNEY -->
 <section class="journey reveal" id="journey">
 
     <h2 class="section-title">My Journey</h2>
 
     <p>
-        Every project, challenge, and experience helps me
-        learn something new. My journey is still ongoing,
-        and I look forward to discovering more opportunities
-        and improving myself along the way.
+        Every challenge and experience helps me learn something new.
+        My journey is still ongoing, and I look forward to discovering
+        more opportunities, exploring new ideas, and improving myself
+        along the way.
     </p>
 
 </section>
 
+<!-- CONTACT -->
 <section class="contact reveal" id="contact">
 
     <h2 class="section-title">Let's Connect 🎄</h2>
 
     <p>
-        Feel free to reach out through my social media accounts!
+        Feel free to reach out through my social media accounts
+        or send me an email!
     </p>
 
     <div class="contact-links">
@@ -454,7 +613,8 @@ footer {
             TikTok
         </a>
 
-        <a href="mailto:leonardojoseph526@gmail.com">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=leonardojoseph526@gmail.com"
+           target="_blank" rel="noopener noreferrer">
             Email Me
         </a>
 
@@ -464,10 +624,12 @@ footer {
 
 <footer>
     <p>© 2026 Joseph Leonardo. All Rights Reserved.</p>
-    <p>Made with creativity and a little Christmas magic. 🎄</p>
+    <p>Made with curiosity and a little Christmas magic. 🎄</p>
 </footer>
 
 <script>
+
+/* SCROLL ANIMATION */
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -479,6 +641,88 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".reveal").forEach(section => {
     observer.observe(section);
 });
+
+/* PERSONAL QUIZ */
+const questions = document.querySelectorAll(".question");
+const result = document.getElementById("quiz-result");
+const resetButton = document.getElementById("reset-quiz");
+
+let score = 0;
+let answered = 0;
+
+questions.forEach(question => {
+
+    const correctAnswer = question.dataset.answer;
+    const options = question.querySelectorAll(".option");
+    const feedback = question.querySelector(".question-feedback");
+
+    options.forEach(option => {
+
+        option.addEventListener("click", () => {
+
+            if (question.dataset.answered === "true") return;
+
+            question.dataset.answered = "true";
+            answered++;
+
+            if (option.textContent.trim() === correctAnswer) {
+                score++;
+                option.classList.add("correct");
+                feedback.textContent = "Correct! Nice one! ✓";
+            } else {
+                option.classList.add("wrong");
+                feedback.textContent = "Not quite! The answer is " + correctAnswer + ".";
+            }
+
+            options.forEach(button => {
+                button.disabled = true;
+
+                if (button.textContent.trim() === correctAnswer) {
+                    button.classList.add("correct");
+                }
+            });
+
+            result.textContent = "Score: " + score + " / 5";
+
+            if (answered === questions.length) {
+                result.textContent =
+                    "You got " + score + " out of 5! " +
+                    (score === 5 ? "You know me really well! 🎉" :
+                    score >= 3 ? "Pretty good! 😎" :
+                    "Looks like you need to know me better! 😂");
+
+                resetButton.style.display = "block";
+            }
+        });
+
+    });
+
+});
+
+/* RESET QUIZ */
+resetButton.addEventListener("click", () => {
+
+    score = 0;
+    answered = 0;
+
+    questions.forEach(question => {
+
+        delete question.dataset.answered;
+
+        question.querySelectorAll(".option").forEach(button => {
+            button.disabled = false;
+            button.classList.remove("correct", "wrong");
+        });
+
+        question.querySelector(".question-feedback").textContent = "";
+
+    });
+
+    result.textContent = "Score: 0 / 5";
+    resetButton.style.display = "none";
+
+});
+
 </script>
 
 </body>

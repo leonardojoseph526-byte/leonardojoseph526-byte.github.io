@@ -855,6 +855,53 @@ function createSnowflake() {
 }
 
 setInterval(createSnowflake, 1500);
+
+// SECRET ENTRANCE
+const secretTrigger = document.getElementById("secret-trigger");
+const secretEntrance = document.getElementById("secret-entrance");
+const secretInput = document.getElementById("secret-code-input");
+const secretStatus = document.getElementById("secret-status");
+const secretUnlocked = document.getElementById("secret-unlocked");
+
+secretTrigger.addEventListener("click", () => {
+    secretEntrance.classList.add("active");
+    secretInput.focus();
+});
+
+function checkSecretCode() {
+    const code = secretInput.value.trim().toUpperCase();
+
+    if (code === "PULSAR") {
+        secretStatus.textContent = "";
+        secretUnlocked.hidden = false;
+        secretInput.hidden = true;
+        document.getElementById("secret-check").hidden = true;
+    } else {
+        secretStatus.textContent = "ACCESS DENIED. WRONG SIGNAL.";
+    }
+}
+
+document.getElementById("secret-check").addEventListener("click", checkSecretCode);
+
+secretInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        checkSecretCode();
+    }
+});
+
+document.getElementById("secret-ignore").addEventListener("click", () => {
+    secretStatus.textContent = "You chose to ignore it. Interesting...";
+});
+
+document.getElementById("secret-exit").addEventListener("click", () => {
+    secretEntrance.classList.remove("active");
+    secretInput.value = "";
+    secretInput.hidden = false;
+    secretUnlocked.hidden = true;
+    document.getElementById("secret-check").hidden = false;
+    secretStatus.textContent = "";
+});
+
 </script>
 
 </body>

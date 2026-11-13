@@ -472,6 +472,116 @@ footer {
     border-radius: 8px;
 }
 
+/* THE HIDDEN WORLD */
+#secret-world {
+    display: none;
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    background: linear-gradient(145deg, #101329, #24203d, #17182b);
+    color: #f3eaff;
+    padding: 30px 18px;
+    font-family: Georgia, serif;
+}
+
+#secret-world.active {
+    display: block;
+}
+
+.world-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.world-header {
+    text-align: center;
+    padding: 45px 10px 35px;
+}
+
+.world-header h1 {
+    color: #e0c9ff;
+    font-size: clamp(30px, 7vw, 48px);
+    margin-bottom: 12px;
+}
+
+.world-header p {
+    color: #c5badc;
+    font-style: italic;
+}
+
+.world-divider {
+    width: 75px;
+    height: 2px;
+    background: #c9a9e8;
+    margin: 22px auto;
+}
+
+.world-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    gap: 13px;
+    margin: 25px 0 45px;
+}
+
+.world-card {
+    background: #252440;
+    color: #eee2ff;
+    border: 1px solid #65557e;
+    border-radius: 13px;
+    padding: 20px 12px;
+    min-height: 110px;
+    cursor: pointer;
+    transition: 0.25s;
+    font-family: Georgia, serif;
+}
+
+.world-card:hover {
+    background: #383153;
+    transform: translateY(-4px);
+    border-color: #d2b6f2;
+}
+
+.world-card span {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.world-section {
+    background: #201e36;
+    border: 1px solid #51466b;
+    border-radius: 15px;
+    padding: 23px;
+    margin: 20px 0;
+    text-align: left;
+    scroll-margin-top: 15px;
+}
+
+.world-section h2 {
+    color: #dfc5ff;
+    margin-bottom: 13px;
+}
+
+.world-section p, .world-section li {
+    color: #d2c9e2;
+    margin-bottom: 8px;
+}
+
+.world-section ul {
+    padding-left: 22px;
+}
+
+.world-back {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 20px;
+    border: 1px solid #bda0dd;
+    border-radius: 25px;
+    background: #302847;
+    color: white;
+    cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -661,11 +771,14 @@ footer {
         </div>
 
         <div id="secret-unlocked" hidden>
-            <h3>ACCESS GRANTED</h3>
-            <p>The signal recognizes you.</p>
-            <p>The hidden world is waking up...</p>
-            <p>Something beautiful is waiting beyond this door.</p>
-        </div>
+    <h3>ACCESS GRANTED ✨</h3>
+    <p>The signal recognizes you.</p>
+    <p>The hidden world is waking up...</p>
+    <br>
+    <button class="world-back" id="enter-world">
+        ENTER THE HIDDEN WORLD →
+    </button>
+</div>
     </div>
 </div>
 
@@ -900,6 +1013,30 @@ document.getElementById("secret-exit").addEventListener("click", () => {
     secretUnlocked.hidden = true;
     document.getElementById("secret-check").hidden = false;
     secretStatus.textContent = "";
+});
+
+// ENTER THE HIDDEN WORLD
+const secretWorld = document.getElementById("secret-world");
+const secretWindow = document.querySelector(".secret-window");
+
+document.getElementById("enter-world").addEventListener("click", () => {
+    secretWindow.style.display = "none";
+    secretWorld.classList.add("active");
+});
+
+document.getElementById("leave-world").addEventListener("click", () => {
+    secretWorld.classList.remove("active");
+    secretWindow.style.display = "block";
+});
+
+document.querySelectorAll(".world-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const target = document.getElementById(card.dataset.target);
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
 });
 
 </script>

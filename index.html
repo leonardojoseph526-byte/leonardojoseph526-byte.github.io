@@ -326,7 +326,7 @@ footer {
     pointer-events: none;
     z-index: 200;
     animation: fall linear infinite;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 @keyframes fall {
@@ -366,10 +366,11 @@ footer {
     }
 }
 
-/* SECRET ENTRANCE */
+/* SECRET ENTRANCE AND HIDDEN WORLD */
 #secret-trigger {
     display: block;
     margin: 12px auto 0;
+    padding: 4px 10px;
     background: transparent;
     border: none;
     color: #d6b45c;
@@ -378,11 +379,7 @@ footer {
     cursor: pointer;
     transition: 0.3s;
 }
-
-#secret-trigger:hover {
-    opacity: 1;
-    transform: rotate(45deg);
-}
+#secret-trigger:hover { opacity: 1; transform: rotate(45deg); }
 
 #secret-entrance {
     position: fixed;
@@ -391,38 +388,31 @@ footer {
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    background: rgba(2, 5, 15, 0.96);
+    padding: 18px;
+    background: rgba(2, 5, 15, 0.97);
 }
-
-#secret-entrance.active {
-    display: flex;
-}
+#secret-entrance.active { display: flex; }
 
 .secret-window {
     width: 100%;
-    max-width: 440px;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
     padding: 28px 22px;
     text-align: center;
     background: #080d17;
     border: 1px solid #77628e;
-    border-radius: 14px;
+    border-radius: 18px;
     color: #d7d9e8;
     font-family: monospace;
     box-shadow: 0 0 35px #77628e33;
 }
-
 .secret-window h2 {
     color: #ff809e;
     margin-bottom: 15px;
     letter-spacing: 3px;
 }
-
-.secret-window p {
-    margin: 12px 0;
-    font-size: 13px;
-}
-
+.secret-window p { margin: 12px 0; font-size: 14px; }
 #secret-code-input {
     width: 100%;
     padding: 13px;
@@ -436,7 +426,6 @@ footer {
     letter-spacing: 4px;
     font-size: 16px;
 }
-
 .secret-actions {
     display: flex;
     flex-wrap: wrap;
@@ -444,142 +433,388 @@ footer {
     gap: 9px;
     margin-top: 15px;
 }
-
-.secret-actions button {
-    padding: 9px 15px;
+.secret-actions button, .world-back {
+    padding: 10px 16px;
     background: #182239;
-    color: #d7d9e8;
-    border: 1px solid #65718d;
-    border-radius: 6px;
+    color: #e8def7;
+    border: 1px solid #82709e;
+    border-radius: 8px;
     cursor: pointer;
     font-family: monospace;
 }
-
-.secret-actions button:hover {
-    background: #303b59;
-}
-
-#secret-status {
-    color: #ff809e;
-    min-height: 22px;
-}
-
+.secret-actions button:hover, .world-back:hover { background: #303b59; }
+#secret-status { color: #ff809e; min-height: 22px; }
 #secret-unlocked {
     color: #d9c5ff;
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 18px;
+    padding: 16px;
     border: 1px dashed #9c83c4;
     border-radius: 8px;
 }
+#secret-unlocked h3 { margin-bottom: 10px; }
 
-/* THE HIDDEN WORLD */
 #secret-world {
-    display: none;
     position: absolute;
     inset: 0;
     overflow-y: auto;
     background: linear-gradient(145deg, #101329, #24203d, #17182b);
     color: #f3eaff;
-    padding: 30px 18px;
+    padding: 25px 18px;
     font-family: Georgia, serif;
 }
-
-#secret-world.active {
-    display: block;
-}
-
-.world-container {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.world-header {
-    text-align: center;
-    padding: 45px 10px 35px;
-}
-
+#secret-world.active { display: block; }
+.world-container { max-width: 850px; margin: 0 auto; }
+.world-header { text-align: center; padding: 35px 10px 28px; }
 .world-header h1 {
     color: #e0c9ff;
     font-size: clamp(30px, 7vw, 48px);
-    margin-bottom: 12px;
+    line-height: 1.2;
+    margin: 12px 0;
 }
-
-.world-header p {
-    color: #c5badc;
-    font-style: italic;
-}
-
+.world-header p { color: #c5badc; font-style: italic; }
 .world-divider {
     width: 75px;
     height: 2px;
     background: #c9a9e8;
     margin: 22px auto;
 }
-
 .world-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 13px;
-    margin: 25px 0 45px;
+    margin: 25px 0 40px;
 }
-
 .world-card {
     background: #252440;
     color: #eee2ff;
     border: 1px solid #65557e;
     border-radius: 13px;
-    padding: 20px 12px;
-    min-height: 110px;
+    padding: 19px 10px;
+    min-height: 105px;
     cursor: pointer;
     transition: 0.25s;
     font-family: Georgia, serif;
+    font-size: 15px;
 }
-
 .world-card:hover {
     background: #383153;
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: #d2b6f2;
 }
-
-.world-card span {
-    display: block;
-    font-size: 25px;
-    margin-bottom: 8px;
-}
-
+.world-card span { display: block; font-size: 25px; margin-bottom: 7px; }
 .world-section {
     background: #201e36;
     border: 1px solid #51466b;
     border-radius: 15px;
-    padding: 23px;
-    margin: 20px 0;
+    padding: 22px;
+    margin: 18px 0;
     text-align: left;
     scroll-margin-top: 15px;
 }
+.world-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+.world-section > * { position: relative; z-index: 1; }
+.world-section h2 { color: #f0dcff; margin-bottom: 13px; }
+.world-section h3 { color: #e7d6ff; margin: 12px 0 7px; }
+.world-section p, .world-section li { color: #e1d9ec; margin-bottom: 8px; }
+.world-section ul { padding-left: 22px; }
 
-.world-section h2 {
-    color: #dfc5ff;
-    margin-bottom: 13px;
+/* Each room has its own little illustrated atmosphere */
+#world-adventures {
+    background: linear-gradient(135deg, #172c35, #263d43 55%, #1a2938);
+}
+#world-adventures::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: .38;
+    background:
+        radial-gradient(ellipse at 80% 20%, rgba(202, 226, 174, .28), transparent 38%),
+        repeating-linear-gradient(125deg, transparent 0 28px, rgba(190, 220, 190, .06) 29px 31px, transparent 32px 58px);
+}
+#world-adventures::after {
+    content: "🧭";
+    position: absolute;
+    right: 20px;
+    bottom: 8px;
+    z-index: 0;
+    font-size: clamp(65px, 15vw, 112px);
+    opacity: .18;
+    transform: rotate(-14deg);
 }
 
-.world-section p, .world-section li {
-    color: #d2c9e2;
-    margin-bottom: 8px;
+/* A sleepy moon for My Thoughts */
+#world-thoughts {
+    background:
+        radial-gradient(ellipse at 80% 15%, rgba(135, 121, 190, .22), transparent 38%),
+        linear-gradient(140deg, #171a38, #292449 60%, #17172e);
+}
+#world-thoughts::before {
+    content: "z  z  z";
+    position: absolute;
+    top: 27px;
+    right: 36px;
+    z-index: 0;
+    color: #e4d5ff;
+    font-size: 19px;
+    letter-spacing: 5px;
+    opacity: .55;
+    animation: sleepyZ 3.8s ease-in-out infinite;
+}
+#world-thoughts::after {
+    content: "🌙";
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    z-index: 0;
+    font-size: clamp(75px, 18vw, 130px);
+    opacity: .25;
+    filter: drop-shadow(0 0 20px rgba(215, 190, 255, .5));
+    animation: moonDrift 6s ease-in-out infinite;
 }
 
-.world-section ul {
-    padding-left: 22px;
+/* A warm, magical library for Reading Corner */
+#world-reading {
+    background:
+        radial-gradient(ellipse at 15% 5%, rgba(235, 185, 105, .2), transparent 35%),
+        linear-gradient(135deg, #2b2030, #443044 55%, #241c2d);
+}
+#world-reading::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 52%;
+    z-index: 0;
+    opacity: .25;
+    background:
+        repeating-linear-gradient(90deg,
+            transparent 0 13px,
+            rgba(240, 198, 133, .9) 14px 18px,
+            transparent 19px 28px,
+            rgba(175, 143, 205, .8) 29px 34px,
+            transparent 35px 45px),
+        repeating-linear-gradient(0deg,
+            rgba(209, 157, 102, .9) 0 7px,
+            transparent 8px 66px);
+    mask-image: linear-gradient(to left, black, transparent);
+}
+#world-reading::after {
+    content: "📚";
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    z-index: 0;
+    font-size: clamp(65px, 16vw, 115px);
+    opacity: .24;
+    filter: drop-shadow(0 0 18px rgba(244, 197, 125, .35));
 }
 
+/* A cosmic aquarium for My Favorites: space, fish and drifting bubbles */
+#world-favorites {
+    background:
+        radial-gradient(ellipse at 78% 18%, rgba(79, 104, 186, .32), transparent 34%),
+        radial-gradient(ellipse at 15% 85%, rgba(28, 153, 170, .28), transparent 42%),
+        linear-gradient(135deg, #071b35, #102b4b 55%, #151b3d);
+}
+#world-favorites::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: .5;
+    background-image:
+        radial-gradient(circle at 12% 20%, #d9eaff 0 1px, transparent 2px),
+        radial-gradient(circle at 72% 16%, #d9eaff 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 45% 72%, #b9f5ff 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 65%, rgba(153, 230, 255, .7) 0 5px, transparent 6px),
+        radial-gradient(circle at 25% 82%, rgba(153, 230, 255, .5) 0 4px, transparent 5px);
+    background-size: 180px 150px, 230px 190px, 210px 180px, 160px 170px, 190px 210px;
+    animation: aquariumDrift 18s linear infinite;
+}
+#world-favorites::after {
+    content: "🐠";
+    position: absolute;
+    right: 18px;
+    bottom: 3px;
+    z-index: 0;
+    font-size: clamp(70px, 17vw, 120px);
+    opacity: .23;
+    filter: drop-shadow(0 0 18px rgba(105, 220, 255, .45));
+    animation: fishSwim 8s ease-in-out infinite;
+}
+
+/* Scrapbook-style Memory Lane */
+#world-memories {
+    background:
+        radial-gradient(ellipse at 85% 15%, rgba(255, 221, 180, .18), transparent 35%),
+        linear-gradient(135deg, #35283a, #49374b 55%, #29243a);
+}
+#world-memories::before {
+    content: "";
+    position: absolute;
+    right: 24px;
+    top: 22px;
+    width: 72px;
+    height: 88px;
+    z-index: 0;
+    opacity: .22;
+    border: 5px solid #f1dfc5;
+    border-bottom-width: 19px;
+    border-radius: 4px;
+    transform: rotate(9deg);
+    box-shadow: -18px 12px 0 -3px rgba(241, 223, 197, .6);
+}
+#world-memories::after {
+    content: "📷";
+    position: absolute;
+    right: 25px;
+    bottom: 0;
+    z-index: 0;
+    font-size: clamp(65px, 15vw, 105px);
+    opacity: .2;
+}
+
+/* A glowing secret garden */
+#world-secrets {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(197, 161, 235, .22), transparent 32%),
+        linear-gradient(135deg, #172d2d, #26394a 55%, #29213e);
+}
+#world-secrets::before {
+    content: "✦   ·   ✧       ·   ✦";
+    position: absolute;
+    inset: 18px 15px auto auto;
+    z-index: 0;
+    color: #e3d1ff;
+    font-size: 24px;
+    letter-spacing: 9px;
+    opacity: .4;
+    animation: fireflyGlow 4s ease-in-out infinite alternate;
+}
+#world-secrets::after {
+    content: "🔮";
+    position: absolute;
+    right: 22px;
+    bottom: 2px;
+    z-index: 0;
+    font-size: clamp(70px, 16vw, 112px);
+    opacity: .22;
+}
+
+/* The aquarium dream */
+#world-dreams {
+    background:
+        radial-gradient(ellipse at 80% 20%, rgba(111, 221, 231, .22), transparent 35%),
+        linear-gradient(135deg, #0d3042, #15516a 58%, #142c4a);
+}
+#world-dreams::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: .38;
+    background-image:
+        radial-gradient(circle, rgba(198, 248, 255, .8) 0 3px, transparent 4px),
+        radial-gradient(circle, rgba(198, 248, 255, .65) 0 2px, transparent 3px);
+    background-size: 85px 110px, 130px 150px;
+    animation: aquariumDrift 16s linear infinite;
+}
+#world-dreams::after {
+    content: "🐟  🫧";
+    position: absolute;
+    right: 18px;
+    bottom: 5px;
+    z-index: 0;
+    font-size: clamp(48px, 12vw, 82px);
+    opacity: .22;
+}
+
+/* Portal animation when the hidden world opens */
+#secret-world.entering {
+    animation: worldReveal 1.45s cubic-bezier(.16, .8, .25, 1) both;
+}
+#secret-world.entering::before,
+#secret-world.entering::after {
+    content: "";
+    position: fixed;
+    inset: -10%;
+    z-index: 20;
+    pointer-events: none;
+}
+#secret-world.entering::before {
+    background: radial-gradient(circle at center,
+        transparent 0 13%, rgba(218, 191, 255, .9) 13.3% 13.8%,
+        transparent 14.2% 27%, rgba(166, 206, 255, .55) 27.3% 27.7%,
+        transparent 28.2%);
+    animation: portalRings 1.4s ease-out both;
+}
+#secret-world.entering::after {
+    background: radial-gradient(circle at center, rgba(226, 210, 255, .32), transparent 58%);
+    animation: portalFlash 1.4s ease-out both;
+}
+
+@keyframes worldReveal {
+    0% { opacity: 0; transform: scale(.92); filter: blur(12px); }
+    58% { opacity: 1; transform: scale(1.015); filter: blur(0); }
+    100% { opacity: 1; transform: scale(1); filter: none; }
+}
+@keyframes portalRings {
+    0% { opacity: 0; transform: scale(.25) rotate(-18deg); }
+    35% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.45) rotate(12deg); }
+}
+@keyframes portalFlash {
+    0% { opacity: 0; }
+    30% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes sleepyZ {
+    0%, 100% { transform: translateY(5px); opacity: .3; }
+    50% { transform: translateY(-8px); opacity: .75; }
+}
+@keyframes moonDrift {
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50% { transform: translateY(-8px) rotate(-2deg); }
+}
+@keyframes aquariumDrift {
+    from { background-position: 0 0, 30px 40px, 0 0, 0 0, 0 0; }
+    to { background-position: 0 -160px, 30px -120px, 0 -100px, 0 -130px, 0 -150px; }
+}
+@keyframes fishSwim {
+    0%, 100% { transform: translateX(0) rotate(-5deg); }
+    50% { transform: translateX(-12px) rotate(4deg); }
+}
+@keyframes fireflyGlow {
+    from { opacity: .18; filter: blur(0); }
+    to { opacity: .65; filter: blur(1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    #secret-world.entering,
+    #secret-world.entering::before,
+    #secret-world.entering::after,
+    #world-thoughts::before,
+    #world-thoughts::after,
+    #world-favorites::before,
+    #world-favorites::after,
+    #world-dreams::before,
+    #world-secrets::before {
+        animation: none !important;
+    }
+}
 .world-back {
     display: block;
-    margin: 30px auto;
+    margin: 28px auto 12px;
     padding: 12px 20px;
-    border: 1px solid #bda0dd;
     border-radius: 25px;
-    background: #302847;
-    color: white;
-    cursor: pointer;
+}
+@media(max-width: 380px) {
+    .world-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
+    .world-card { font-size: 13px; padding: 15px 7px; }
 }
 
 </style>
@@ -736,52 +971,140 @@ footer {
     </div>
 </section>
 
-
 <footer>
     <p>© 2026 Joseph Leonardo | LeooWeb.</p>
     <p>Made with curiosity and a little Christmas spirit 🎄</p>
-    <button id="secret-trigger" aria-label="Strange star">✧</button>
+    <button id="secret-trigger" aria-label="Open a hidden place" title="A strange little star">✧</button>
 </footer>
 
-<div id="secret-entrance">
+
+<div id="secret-entrance" aria-modal="true" role="dialog" aria-label="Secret access">
     <div class="secret-window">
         <h2>⚠ SIGNAL DETECTED</h2>
-
         <p>ERROR 404: LOCATION NOT FOUND</p>
         <p>You weren't supposed to find this place.</p>
         <p>Something is hiding behind this screen.</p>
-
         <p style="color:#a9bce8;">
             HINT: A dead star that sends repeating beams across the universe.
         </p>
 
-        <input
-            type="text"
-            id="secret-code-input"
-            placeholder="ENTER ACCESS KEY"
-            autocomplete="off"
-        >
+        <input type="text" id="secret-code-input"
+            placeholder="ENTER ACCESS KEY" autocomplete="off"
+            autocapitalize="characters">
 
-        <p id="secret-status"></p>
+        <p id="secret-status" aria-live="polite"></p>
 
         <div class="secret-actions">
-            <button id="secret-check">RETRY</button>
-            <button id="secret-ignore">IGNORE</button>
-            <button id="secret-exit">EXIT</button>
+            <button id="secret-check" type="button">RETRY</button>
+            <button id="secret-ignore" type="button">IGNORE</button>
+            <button id="secret-exit" type="button">EXIT</button>
         </div>
 
         <div id="secret-unlocked" hidden>
-    <h3>ACCESS GRANTED ✨</h3>
-    <p>The signal recognizes you.</p>
-    <p>The hidden world is waking up...</p>
-    <br>
-    <button class="world-back" id="enter-world">
-        ENTER THE HIDDEN WORLD →
-    </button>
-</div>
+            <h3>ACCESS GRANTED ✨</h3>
+            <p>The signal recognizes you.</p>
+            <p>The hidden world is waking up...</p>
+            <p>Something beautiful is waiting beyond this door.</p>
+            <button class="world-back" id="enter-world" type="button">
+                ENTER THE HIDDEN WORLD →
+            </button>
+        </div>
+    </div>
+
+    <div id="secret-world" hidden>
+        <div class="world-container">
+            <div class="world-header">
+                <p>✧ A PLACE BEYOND THE ORDINARY ✧</p>
+                <h1>Welcome to My Little World</h1>
+                <div class="world-divider"></div>
+                <p>Some memories haven't happened yet.</p>
+            </div>
+
+            <h2 style="text-align:center;color:#dfc5ff;">Explore the Unknown</h2>
+            <div class="world-grid">
+                <button class="world-card" data-target="world-adventures"><span>🧭</span>My Adventures</button>
+                <button class="world-card" data-target="world-thoughts"><span>🌙</span>My Thoughts</button>
+                <button class="world-card" data-target="world-reading"><span>📚</span>Reading Corner</button>
+                <button class="world-card" data-target="world-favorites"><span>✨</span>My Favorites</button>
+                <button class="world-card" data-target="world-memories"><span>📷</span>Memory Lane</button>
+                <button class="world-card" data-target="world-secrets"><span>🔮</span>Little Secrets</button>
+            </div>
+
+            <div class="world-section" id="world-adventures">
+                <h2>🧭 My Adventures</h2>
+                <p>A collection of experiences, stories, and moments worth remembering.</p>
+                <p><i>More adventures will be added here...</i></p>
+            </div>
+
+            <div class="world-section" id="world-thoughts">
+                <h2>🌙 My Thoughts</h2>
+                <p>Random thoughts, personal reflections, and words worth keeping.</p>
+                <p><i>A little space for the things on my mind...</i></p>
+            </div>
+
+            <div class="world-section" id="world-reading">
+                <h2>📚 My Reading Corner</h2>
+                <h3>Currently Reading</h3>
+                <ul>
+                    <li>Player</li>
+                    <li>Dungeon Odyssey</li>
+                    <li>Gosu (Manhua)</li>
+                </ul>
+                <h3>All-Time Favorites</h3>
+                <ul>
+                    <li>The Story of a Low-Rank Soldier Becoming a Monarch</li>
+                    <li>The Legend of the Northern Blade</li>
+                </ul>
+                <h3>Science Books — Want to Read</h3>
+                <ul>
+                    <li>Cosmos — Carl Sagan</li>
+                    <li>Astrophysics for People in a Hurry — Neil deGrasse Tyson</li>
+                    <li>A Brief History of Time — Stephen Hawking</li>
+                    <li>What If? — Randall Munroe</li>
+                    <li>The Body — Bill Bryson</li>
+                </ul>
+            </div>
+
+            <div class="world-section" id="world-favorites">
+                <h2>✨ My Favorites</h2>
+                <h3>🎮 Games</h3>
+                <p>Minecraft · Chess · Mobile Legends · Roblox · Phasmophobia</p>
+                <h3>🎵 Music</h3>
+                <p>Rex Orange County</p>
+                <h3>🎬 Movies</h3>
+                <p>Jack the Giant Slayer and action movies.</p>
+                <h3>🎌 Anime</h3>
+                <p>Attack on Titan · Tokyo Ghoul · JoJo's Bizarre Adventure</p>
+                <h3>🐾 Animals and Nature</h3>
+                <p>Axolotls · Cats · Fish · Fishing</p>
+                <h3>🌌 Science and Space</h3>
+                <p>Pulsars, undiscovered planets, and the mysteries of the universe.</p>
+            </div>
+
+            <div class="world-section" id="world-memories">
+                <h2>📷 Memory Lane</h2>
+                <p>A place for photographs and moments I never want to forget.</p>
+                <p><i>Waiting for memories to be added...</i></p>
+            </div>
+
+            <div class="world-section" id="world-secrets">
+                <h2>🔮 Little Secrets</h2>
+                <p>Not everything has been discovered yet.</p>
+                <p><i>Some things are better found than explained.</i></p>
+            </div>
+
+            <div class="world-section" id="world-dreams">
+                <h2>🌠 Dreams I Haven't Lived Yet</h2>
+                <h3>The Aquarium I've Yet to Visit</h3>
+                <p>Somewhere in the future, I hope to visit a beautiful aquarium filled with countless fish, discover different aquatic species, and finally see many varieties of axolotls in person.</p>
+                <p>Until then, I'll keep looking forward to it. Hopefully, one day, everything I've been wishing for will become a reality.</p>
+                <p><i>— A dream worth keeping.</i></p>
+            </div>
+
+            <button class="world-back" id="leave-world" type="button">← Leave the Hidden World</button>
+        </div>
     </div>
 </div>
-
 
 <script>
 const questions = [
@@ -972,19 +1295,22 @@ setInterval(createSnowflake, 1500);
 // SECRET ENTRANCE
 const secretTrigger = document.getElementById("secret-trigger");
 const secretEntrance = document.getElementById("secret-entrance");
+const secretWindow = document.querySelector(".secret-window");
 const secretInput = document.getElementById("secret-code-input");
 const secretStatus = document.getElementById("secret-status");
 const secretUnlocked = document.getElementById("secret-unlocked");
+const secretWorld = document.getElementById("secret-world");
 
 secretTrigger.addEventListener("click", () => {
     secretEntrance.classList.add("active");
+    secretWindow.hidden = false;
+    secretWorld.hidden = true;
+    secretWorld.classList.remove("active");
     secretInput.focus();
 });
 
 function checkSecretCode() {
-    const code = secretInput.value.trim().toUpperCase();
-
-    if (code === "PULSAR") {
+    if (secretInput.value.trim().toUpperCase() === "PULSAR") {
         secretStatus.textContent = "";
         secretUnlocked.hidden = false;
         secretInput.hidden = true;
@@ -995,11 +1321,8 @@ function checkSecretCode() {
 }
 
 document.getElementById("secret-check").addEventListener("click", checkSecretCode);
-
 secretInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        checkSecretCode();
-    }
+    if (event.key === "Enter") checkSecretCode();
 });
 
 document.getElementById("secret-ignore").addEventListener("click", () => {
@@ -1015,27 +1338,34 @@ document.getElementById("secret-exit").addEventListener("click", () => {
     secretStatus.textContent = "";
 });
 
-// ENTER THE HIDDEN WORLD
-const secretWorld = document.getElementById("secret-world");
-const secretWindow = document.querySelector(".secret-window");
-
 document.getElementById("enter-world").addEventListener("click", () => {
-    secretWindow.style.display = "none";
-    secretWorld.classList.add("active");
+    secretWindow.hidden = true;
+    secretWorld.hidden = false;
+    secretWorld.classList.add("active", "entering");
+    secretWorld.scrollTop = 0;
+
+    // Remove the entrance animation class after the portal effect finishes.
+    window.setTimeout(() => {
+        secretWorld.classList.remove("entering");
+    }, 1550);
 });
 
 document.getElementById("leave-world").addEventListener("click", () => {
     secretWorld.classList.remove("active");
-    secretWindow.style.display = "block";
+    secretWorld.hidden = true;
+    secretWindow.hidden = false;
+    secretEntrance.classList.remove("active");
+    secretInput.value = "";
+    secretInput.hidden = false;
+    secretUnlocked.hidden = true;
+    document.getElementById("secret-check").hidden = false;
+    secretStatus.textContent = "";
 });
 
-document.querySelectorAll(".world-card").forEach(card => {
+document.querySelectorAll(".world-card").forEach((card) => {
     card.addEventListener("click", () => {
         const target = document.getElementById(card.dataset.target);
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 });
 

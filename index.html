@@ -365,6 +365,113 @@ footer {
         padding: 20px 15px;
     }
 }
+
+/* SECRET ENTRANCE */
+#secret-trigger {
+    display: block;
+    margin: 12px auto 0;
+    background: transparent;
+    border: none;
+    color: #d6b45c;
+    font-size: 19px;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#secret-trigger:hover {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+
+#secret-entrance {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(2, 5, 15, 0.96);
+}
+
+#secret-entrance.active {
+    display: flex;
+}
+
+.secret-window {
+    width: 100%;
+    max-width: 440px;
+    padding: 28px 22px;
+    text-align: center;
+    background: #080d17;
+    border: 1px solid #77628e;
+    border-radius: 14px;
+    color: #d7d9e8;
+    font-family: monospace;
+    box-shadow: 0 0 35px #77628e33;
+}
+
+.secret-window h2 {
+    color: #ff809e;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.secret-window p {
+    margin: 12px 0;
+    font-size: 13px;
+}
+
+#secret-code-input {
+    width: 100%;
+    padding: 13px;
+    margin: 15px 0;
+    background: #111b2b;
+    border: 1px solid #65718d;
+    border-radius: 7px;
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    letter-spacing: 4px;
+    font-size: 16px;
+}
+
+.secret-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.secret-actions button {
+    padding: 9px 15px;
+    background: #182239;
+    color: #d7d9e8;
+    border: 1px solid #65718d;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.secret-actions button:hover {
+    background: #303b59;
+}
+
+#secret-status {
+    color: #ff809e;
+    min-height: 22px;
+}
+
+#secret-unlocked {
+    color: #d9c5ff;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed #9c83c4;
+    border-radius: 8px;
+}
+
 </style>
 </head>
 
@@ -519,10 +626,49 @@ footer {
     </div>
 </section>
 
+
 <footer>
     <p>© 2026 Joseph Leonardo | LeooWeb.</p>
     <p>Made with curiosity and a little Christmas spirit 🎄</p>
+    <button id="secret-trigger" aria-label="Strange star">✧</button>
 </footer>
+
+<div id="secret-entrance">
+    <div class="secret-window">
+        <h2>⚠ SIGNAL DETECTED</h2>
+
+        <p>ERROR 404: LOCATION NOT FOUND</p>
+        <p>You weren't supposed to find this place.</p>
+        <p>Something is hiding behind this screen.</p>
+
+        <p style="color:#a9bce8;">
+            HINT: A dead star that sends repeating beams across the universe.
+        </p>
+
+        <input
+            type="text"
+            id="secret-code-input"
+            placeholder="ENTER ACCESS KEY"
+            autocomplete="off"
+        >
+
+        <p id="secret-status"></p>
+
+        <div class="secret-actions">
+            <button id="secret-check">RETRY</button>
+            <button id="secret-ignore">IGNORE</button>
+            <button id="secret-exit">EXIT</button>
+        </div>
+
+        <div id="secret-unlocked" hidden>
+            <h3>ACCESS GRANTED</h3>
+            <p>The signal recognizes you.</p>
+            <p>The hidden world is waking up...</p>
+            <p>Something beautiful is waiting beyond this door.</p>
+        </div>
+    </div>
+</div>
+
 
 <script>
 const questions = [
